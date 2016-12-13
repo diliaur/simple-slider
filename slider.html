@@ -1,0 +1,73 @@
+<html>
+<head>
+	<title>a slider</title>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<style type="text/css">
+		.slider-wrapper {
+			width: 350px;
+			height: 320px;
+			//overflow: hidden;
+			border: 1px solid black;
+			font-family: sans-serif;
+			font-size: 12px;
+		}
+		.slider-wrapper img {
+			width: 100%;
+			height: auto;
+		}
+		ul.slider {
+			list-style: none;
+			margin: 0; padding: 0;
+		}
+		li.dots {
+			width: 100%;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="slider-wrapper">
+		<ul class="slider">
+			<li><img src="img/hiff_apocalypseChild.jpg"></li>
+			<li><img src="img/hiff_oneday.jpg"></li>
+			<li><img src="img/hiff_tiesThatBind.jpg"></li>
+		</ul>
+	</div>
+
+<script type="text/javascript">
+	jQuery( document ).ready (
+		function() {
+
+			allSlides = $("ul.slider li");
+			allSlides.hide(); // hide everything at first
+			allSlides.eq(0).show(); // immediately show only the first one
+
+			slideCount = 1;
+
+			// setup slider dots/numbers/whatever
+
+			$("ul.slider li:last").after("<li class='dots'>");
+			//for (i = allSlides.length; i > 0; i--) {
+			for (i = 0; i < allSlides.length; i++) {
+				$("ul.slider li.dots").append("[" + i + "]");
+			}
+			$("ul.slider li:last").after("</li>");
+
+			// this controls the images going
+			
+			setInterval(function() {
+				allSlides.hide(); // again hide all
+				allSlides.eq(slideCount).show(); // immediately show the NEXT one
+				  // ^above needs to be outside the loop for better timing
+				if ( slideCount < 2) {
+					slideCount+=1;
+				} else {
+					slideCount=0;
+				}
+			}, 3000);
+		}
+	);
+</script>
+</body>
+</html>
