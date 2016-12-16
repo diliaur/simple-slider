@@ -13,12 +13,13 @@
 			overflow: hidden;
 		}
 		ul.slider {
+			position: relative;//
 			list-style: none;
 			margin: 0; padding: 0;
 		}
 		ul.slider li {
-			height: 320px;
-			position: relative; // this is important
+			height: 300;
+			position: relative;
 		}
 		span.slider-title {
 			position: absolute;
@@ -49,17 +50,35 @@
 			z-index: 9;
 		}
 		li.dots {
-			position: relative;
+			position: absolute!important;
+			top: 0px;
+			height: 20px!important;
 			width: 100%;
 			text-align: center;
 			z-index: 10;
-			height: 10px;
+			color: white;
 		}
+		.slider-prev, .slider-next {
+			position: absolute;
+			top: 135;
+			z-index: 10;
+			padding: 10px;
+			background-color: rgba(0,0,0,0.6);
+			color: #ccc;
+		}
+		.slider-prev {
+			left: 0;
+		}
+		.slider-next {
+			right: 0;
+		}
+
 	</style>
 </head>
 <body>
 
 	<div class="slider-wrapper">
+		<div class="slider-prev">prev</div>
 		<ul class="slider">
 			<li>
 				<span class="slider-title">Apocalypse Child</span>
@@ -77,11 +96,16 @@
 				<img src="img/hiff_tiesThatBind.jpg">
 			</li>
 		</ul>
+		<div class="slider-next">next</div>
 	</div>
 
 <script type="text/javascript">
 	jQuery( document ).ready ( // every JS callback has to be inside some kind of other func
 		function() {
+
+			// ----------------- //
+			//       setup       //
+			// ----------------- //
 
 			allSlides = $("ul.slider li"); // grab all the li's in the slider ul
 			allSlides.hide(); // hide everything at first
