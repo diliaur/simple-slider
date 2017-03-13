@@ -1,0 +1,144 @@
+<html>
+<head>
+	<title></title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+</head>
+
+<style type="text/css">
+	div {
+		box-sizing: border-box;
+	}
+	.container-slider {
+		width: 100%;
+		max-height: 300px; /* this seems to do the trick for resizing */
+		background-color: #eee;
+		overflow: hidden;
+	}
+	.container-slides {
+		width: 75%;
+		float: left;
+		overflow: hidden;
+	}
+	.container-slides img {
+		width: 100%;
+		height: auto;
+	}
+	.container-titles {
+		width: 25%;
+		float: left;
+		background-color: #666;
+		/* height needs to be contingent upon .container-slides height */
+	}
+	.slide-title {
+		padding-left: 5px;
+		padding-right: 5px;
+		border-bottom: 1px solid #000;
+	}
+	.clearfix-dt { /* might not be necessary since don't need bgcolor*/
+		clear:both;
+	}
+	.arrow-left, .arrow-right {
+	}
+	.arrow-left {
+	}
+	.arrow-right {
+	}
+	.dots {
+	}
+</style>
+<body>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="container-slider">
+				<div class="container-slides">
+					<div class="on-slide-title">
+						Title on the Slide
+					</div>
+					<div class="category">
+						Category
+					</div>
+					<div class="arrow-left">
+						<
+					</div>
+					<div class="arrow-right">
+						>
+					</div>
+					<div class="dots">
+						O O O O O
+					</div>
+					<img src="img/900x300.png">
+					<div class="excerpt">
+						Excerpt. Not going to overlay this on the slide, it can have its
+						own black(ish) bar underneath the slide image. We'll see how it
+						looks.
+					</div>
+				</div>
+				<div class="container-titles">
+					<div class="slide-title">Title 1</div>
+					<div class="slide-title">Title 2</div>
+					<div class="slide-title">Title 3</div>
+					<div class="slide-title">Title 4</div>
+					<div class="slide-title">Title 5</div>
+				</div>
+				<div class="clearfix-dt"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+
+$( document ).ready( function() {
+
+	/**
+	 * Setup the heights of the title elements, based on the 
+	 * height of the slide image container
+	 */
+	function setHeights() {
+		
+		var numSlides = $( '.slide-title' ).length; // get how many titles/slides
+		
+		var slideHeight = $( '.container-slides' ).height(); // get slide height
+		var borderHeight = numSlides; // compensate for total height taken by borders
+
+		// calculate title height - (slide height) / (# of titles/# of slides)
+		var titleHeight = (slideHeight - borderHeight) / numSlides;
+
+		// assign height to title element class
+		$( '.slide-title' ).height(titleHeight);
+
+		console.log("slide number: " + numSlides);
+		console.log("slide height: " + slideHeight);
+		console.log("title height: " + titleHeight);
+		console.log("-------");
+	}
+	
+	/**
+	 * go ahead, do your thing!
+	 */
+	setHeights();
+
+	/** 
+	 * Every time window resizes, check the slides height and assign it to
+	 * the height of the titles
+	 */
+	$( window ).resize( function() {
+		setHeights();
+	});
+});
+
+</script>
+
+
+</body>
+</html>
