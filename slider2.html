@@ -18,7 +18,7 @@
 	}
 	.container-slider {
 		width: 100%;
-		max-height: 300px; /* this seems to do the trick for resizing */
+		//max-height: 300px; /* this seems to do the trick for resizing */
 		background-color: #eee;
 		overflow: hidden;
 	}
@@ -26,6 +26,7 @@
 		width: 75%;
 		float: left;
 		overflow: hidden;
+		position: relative; /* needed for abs posititioning of children */
 	}
 	.container-slides img {
 		width: 100%;
@@ -45,13 +46,34 @@
 	.clearfix-dt { /* might not be necessary since don't need bgcolor*/
 		clear:both;
 	}
-	.arrow-left, .arrow-right {
+	.arrow-left, .arrow-right, .dots {
+		float: left;
+		text-align: center;
 	}
 	.arrow-left {
+		width:10%;
 	}
 	.arrow-right {
+		width:10%;
 	}
 	.dots {
+		width:80%;
+	}
+	.categories {
+		position: absolute;
+		top: 0; left: 0;
+	}
+	.category {
+		padding: 3px;
+		background-color: #ec4838;
+		color: #fff;
+		text-transform: uppercase;
+	}
+	.excerpt {
+
+	}
+	.on-slide-title {
+		display:none;
 	}
 </style>
 <body>
@@ -64,23 +86,25 @@
 					<div class="on-slide-title">
 						Title on the Slide
 					</div>
-					<div class="category">
-						Category
-					</div>
-					<div class="arrow-left">
-						<
-					</div>
-					<div class="arrow-right">
-						>
-					</div>
-					<div class="dots">
-						O O O O O
+					<div class="categories">
+						<span class="category">category one</span>
+						<span class="category">category two</span>
+						<span class="category">and etc</span>
 					</div>
 					<img src="img/900x300.png">
 					<div class="excerpt">
 						Excerpt. Not going to overlay this on the slide, it can have its
 						own black(ish) bar underneath the slide image. We'll see how it
 						looks.
+					</div>
+					<div class="arrow-left">
+						<a><</a>
+					</div>
+					<div class="dots">
+						O O O O O
+					</div>
+					<div class="arrow-right">
+						>
 					</div>
 				</div>
 				<div class="container-titles">
