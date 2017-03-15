@@ -29,19 +29,8 @@
 		position: relative; /* needed for abs posititioning of children */
 	}
 	.container-slides img {
-		width: 100%;
-		height: auto;
-	}
-	.container-titles {
-		width: 25%;
-		float: left;
-		background-color: #666;
-		/* height needs to be contingent upon .container-slides height */
-	}
-	.slide-title {
-		padding-left: 5px;
-		padding-right: 5px;
-		border-bottom: 1px solid #000;
+		//height: auto;
+		min-height: 200px;
 	}
 	.clearfix-dt { /* might not be necessary since don't need bgcolor*/
 		clear:both;
@@ -72,8 +61,54 @@
 	.excerpt {
 
 	}
+	.container-titles {
+		width: 25%;
+		float: left;
+		background-color: #fff;
+		/* height needs to be contingent upon .container-slides height */
+	}
+	.slide-title {
+		margin-left: 5px;
+		margin-right: 5px;
+		padding: 5px;
+		border-bottom: 1px solid #eee;
+		overflow: hidden; /* just in case title is too long */
+	}
 	.on-slide-title {
 		display:none;
+	}
+	.slide-title span {
+		display: block;
+	}
+	.title-inner {
+		font-size: 14px;
+		word-wrap: break-word!important;
+	}
+	.date {
+		font-size: 10px;
+		text-transform: uppercase;
+	}
+	/**
+	 * Highlighted title tab styling
+	 */
+	.current {
+		background-color: #ccc;
+		color: #000;
+	}
+	/**
+	 * Styling & collapsing the image list
+	 */
+	.image-list {
+		min-height: 300px;
+	}
+	.image-list ul {
+		list-style-type: none;
+		margin: 0; padding: 0;
+		position: relative;
+	}
+	.image-list li {
+		position: absolute;
+		top: 0; left: 0;
 	}
 </style>
 <body>
@@ -91,7 +126,14 @@
 						<span class="category">category two</span>
 						<span class="category">and etc</span>
 					</div>
-					<img src="img/900x300.png">
+					<div class="image-list">
+						<ul>
+							<li><img src="img/931.png"></li>
+							<li><img src="img/932.png"></li>
+							<li><img src="img/933.png"></li>
+						</ul>
+						<div id="clearfix"></div>
+					</div>
 					<div class="excerpt">
 						Excerpt. Not going to overlay this on the slide, it can have its
 						own black(ish) bar underneath the slide image. We'll see how it
@@ -108,11 +150,26 @@
 					</div>
 				</div>
 				<div class="container-titles">
-					<div class="slide-title">Title 1</div>
-					<div class="slide-title">Title 2</div>
-					<div class="slide-title">Title 3</div>
-					<div class="slide-title">Title 4</div>
-					<div class="slide-title">Title 5</div>
+					<div class="slide-title">
+						<span class="title-inner">This title tests how long titles can get. How many chars: 60</span>
+						<span class="date">March 15, 2017</span>
+					</div>
+					<div class="slide-title">
+						<span class="title-inner">Can use 60 characters but long words will ruin alignmnt</span>
+						<span class="date">March 15, 2017</span>
+					</div>
+					<div class="slide-title">
+						<span class="title-inner">Title</span>
+						<span class="date">March 15, 2017</span>
+					</div>
+					<div class="slide-title">
+						<span class="title-inner">Title</span>
+						<span class="date">March 15, 2017</span>
+					</div>
+					<div class="slide-title">
+						<span class="title-inner">Title</span>
+						<span class="date">March 15, 2017</span>
+					</div>
 				</div>
 				<div class="clearfix-dt"></div>
 			</div>
