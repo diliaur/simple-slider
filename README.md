@@ -3,7 +3,7 @@
 ## Pre-requisite(s) for Use 
 - Images added must be of the same size if you want consistency. (You decide what looks good, but the demo uses 900x300.)
 
-##Todo
+## Todo
 
 #### Key
 - [] to be done
@@ -11,14 +11,23 @@
 - [x] done from todo list
 
 [] sliding functionality - highlight current title on right side corresponding to current slide
+
 [] nav functionality - left/right arrows flip through slides
+
 [] nav functionality - dots can be clicked and brought to the right slide
+
 [] nav functionality - select by title on right side
+
 [] control length of titles and excerpts (ellipsis '...' after max # of characters) for display purposes
+
 [] calculate size of titles based on # of slides
+
 [] complete a mockup that looks like finished product, to make sure styles are set
+
 [] Separate JS, CSS, and HTML into separate files
+
 [] wordpress-ify - auto-populate slides, titles, excerpts, etc.
+
 [] wordpress-ify - display categories
 
 ## Done
