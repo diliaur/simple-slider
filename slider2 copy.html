@@ -1,14 +1,16 @@
 <html>
 <head>
 	<title></title>
-	<!-- jQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+</head>
 
 <style type="text/css">
 	div {
@@ -49,11 +51,11 @@
 	.dots {
 		width:80%;
 	}
-	/*.categories {
+	.categories {
 		position: absolute;
 		top: 0; left: 0;
 		z-index: 90;
-	}*/
+	}
 	.category {
 		padding: 3px;
 		background-color: #ec4838;
@@ -61,8 +63,6 @@
 		text-transform: uppercase;
 	}
 	.excerpt {
-		background-color: #000;
-		color: #fff;
 	}
 	.slide-nav {
 	}
@@ -102,7 +102,6 @@
 	}
 	/**
 	 * Styling & collapsing the image list
-	 * NOTE: This is no longer applicable since restructuring of the dom elements 03/20 @ 10:45a; Need to convert to new ul style
 	 */
 	.image-list {
 		/* its height will be that of the image */
@@ -117,29 +116,7 @@
 		position: absolute;
 		top: 0; left: 0;
 	}
-	/* ----------------- */
-
-	/*
-	 * SLIDE LIST
-	 */
-	.slide-list {
-		list-style: none;
-		padding: 0; margin: 0;
-		position: relative;
-	}
-	.slide-list li .categories {
-		position: absolute;
-		top: 0; left: 0;
-		z-index: 90;
-	}
-	.slide-list li img {
-		float: left; /* in order for image to go under categories */
-		z-index: 89;
-	}
 </style>
-
-</head>
-
 <body>
 
 <div class="container">
@@ -147,49 +124,60 @@
 		<div class="col-md-12">
 			<div class="container-slider">
 				<div class="container-slides">
-					<ul class="slide-list">
-						<li>
-							<div class="categories">
-								<span class="category">category one</span>
-								<span class="category">category two</span>
-								<span class="category">and etc</span>
-							</div>
-							<img class="current-slide-img" src="img/931.png">
-							<div class="excerpt">
-								excerpt
-							</div>
-						</li>
-						<li>
-							<div class="categories">
-								<span class="category">category one</span>
-								<span class="category">and etc</span>
-							</div>
-							<img class="current-slide-img" src="img/932.png">
-							<div class="excerpt">
-								excerpt
-							</div>
-						</li>
-					</ul>
+					<div class="on-slide-title">
+						Title on the Slide
+					</div>
+					<div class="categories">
+						<span class="category">category one</span>
+						<span class="category">category two</span>
+						<span class="category">and etc</span>
+					</div>
+					<div class="image-list">
+						<ul>
+							<li><img src="img/931.png"></li>
+							<li><img src="img/932.png"></li>
+							<li><img src="img/933.png"></li>
+						</ul>
+					</div>
+					<div class="excerpt">
+						Excerpt. Not going to overlay this on the slide, it can have its
+						own bar underneath the slide image. We'll see how it
+						looks.
+					</div>
 					<div class="slide-nav">
 						<div class="arrow-left">
-							<a>&#9668;</a>
+							<a><</a>
 						</div>
 						<div class="dots">
+							O O O O O
 						</div>
 						<div class="arrow-right">
-							&#9658;
+							>
 						</div>
 						<div class="clearfix-dt"></div>
 					</div>
 				</div>
 				<div class="container-titles">
-					<!--
 					<div class="slide-title">
 						<span class="title-inner">This title tests how long titles can get. How many chars: 60</span>
 						<span class="date">March 15, 2017</span>
 					</div>
-					-->
-
+					<div class="slide-title">
+						<span class="title-inner">Can use 60 characters but long words will ruin alignmnt</span>
+						<span class="date">March 15, 2017</span>
+					</div>
+					<div class="slide-title">
+						<span class="title-inner">Title</span>
+						<span class="date">March 15, 2017</span>
+					</div>
+					<div class="slide-title">
+						<span class="title-inner">Title</span>
+						<span class="date">March 15, 2017</span>
+					</div>
+					<div class="slide-title">
+						<span class="title-inner">Title</span>
+						<span class="date">March 15, 2017</span>
+					</div>
 				</div>
 				<div class="clearfix-dt"></div>
 			</div>
@@ -202,25 +190,10 @@
 $( document ).ready( function() {
 
 	/**
-	 * GLOBALS
-	 */
-
-	var NUM_SLIDES = $( '.slide-list li' ).length;
-
-	//console.log('NUM_SLIDES: ' + NUM_SLIDES);
-
-	/**
-	 * Based on the slides, populate the title container div with titles
-	 */
-	function populateTitles() {
-
-	}
-
-	/**
 	 * Setup the heights of the title elements, based on the 
 	 * height of the slide image container
 	 */
-	function setTitleHeights() {
+	function setHeights() {
 		
 		var numSlides = $( '.slide-title' ).length; // get how many titles/slides
 		
@@ -245,75 +218,25 @@ $( document ).ready( function() {
 		// nor remain too big
 		$( '.image-list' ).height(slideHeight);
 
-		//console.log(slideHeight,exerptHeight,navHeight);
-		//console.log("slide number: " + numSlides);
-		//console.log("slide height: " + slideHeight);
-		//console.log("slide container height: " + slideContainerHeight);
-		//console.log("title height: " + titleHeight);
-		//console.log("-------");
-	}
-
-	/**
-	 * Print # of dots based on # of slides
-	 */
-	function generateDots() {
-		for (var count = 0; count < NUM_SLIDES; count++) {
-			$( '.dots' ).append( "&#9675;" ); // UNICODE "White Circle" U+25CB
-		}
-	}
-
-	/**
-	 * The actual flipping through action of the slides.
-	 */
-	function slide() {
-		// ---------------------------------
-		// SETUP - initial page load
-		// hide all slides but the first one
-		// ---------------------------------
-		var allSlides = $( '.slide-list li' ); // get all slides in easy array format
-		allSlides.hide(); // hide all slides
-		allSlides.eq(0).show(); // show the first
-
-		// ---------------------------------------------
-		// then, in order, show each slide one at a time
-		// and give it a sensible interval, for godssake
-		// ---------------------------------------------
-
-		var count = 1;
-
-		setInterval(function() {
-			
-			// hide all
-			allSlides.hide();
-			// show next one
-			console.log(count);
-			allSlides.eq(count).show();
-
-			// check if time to cycle back to beginning, if not count++
-			if ( count == NUM_SLIDES - 1 ) {
-				count = 0;
-			} else {
-				count++;
-			}
-			console.log(count);
-			console.log("----")
-		}, 3000);
-	
+		console.log(slideHeight,exerptHeight,navHeight);
+		console.log("slide number: " + numSlides);
+		console.log("slide height: " + slideHeight);
+		console.log("slide container height: " + slideContainerHeight);
+		console.log("title height: " + titleHeight);
+		console.log("-------");
 	}
 	
 	/**
 	 * go ahead, do your thing!
 	 */
-	//setHeights();
-	generateDots();
-	slide();
+	setHeights();
 
 	/** 
 	 * Every time window resizes, check the slides height and assign it to
 	 * the height of the titles
 	 */
 	$( window ).resize( function() {
-		//setHeights();
+		setHeights();
 	});
 });
 
