@@ -10,7 +10,6 @@
 - [x] done from todo list
 
 ## Todo
-
 - [] sliding functionality - highlight current title on right side corresponding to current slide
 - [] nav functionality - left/right arrows flip through slides
 - [] nav functionality - dots can be clicked and brought to the right slide
@@ -23,6 +22,7 @@
 - [] wordpress-ify - display categories
 
 ## Done
+- [x] (Mar 20 17) populate titles based on slides
 - [x] (Mar 20 17) sliding functionality - flipping through images and excerpts
 - [x] (Mar 20 17) nav - display # of dots according to # of slides
 - [x] (Mar 20 17) reorganize so that each slide, title, categories, excerpt, etc. are together in one li for ease of wordpress-ifying

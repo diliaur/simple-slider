@@ -75,17 +75,17 @@
 	.on-slide-title {
 		display:none;
 	}
-	.slide-title {
+	.title-and-date {
 		margin-left: 5px;
 		margin-right: 5px;
 		padding: 5px;
 		border-bottom: 1px solid #eee;
 		overflow: hidden; /* just in case title is too long */
 	}
-	.slide-title span {
+	.title-and-date span {
 		display: block;
 	}
-	.title-inner {
+	.title-and-date .title {
 		font-size: 14px;
 		word-wrap: break-word!important;
 	}
@@ -149,6 +149,10 @@
 				<div class="container-slides">
 					<ul class="slide-list">
 						<li>
+							<div class="title-and-date">
+								<span class="title">Title 1</span>
+								<span class="date">March 20, 2017</span>
+							</div>
 							<div class="categories">
 								<span class="category">category one</span>
 								<span class="category">category two</span>
@@ -156,17 +160,35 @@
 							</div>
 							<img class="current-slide-img" src="img/931.png">
 							<div class="excerpt">
-								excerpt
+								excerpt the first
 							</div>
 						</li>
 						<li>
+							<div class="title-and-date">
+								<span class="title">Title 2</span>
+								<span class="date">March 21, 2017</span>
+							</div>
 							<div class="categories">
 								<span class="category">category one</span>
 								<span class="category">and etc</span>
 							</div>
 							<img class="current-slide-img" src="img/932.png">
 							<div class="excerpt">
-								excerpt
+								excerpt the second
+							</div>
+						</li>
+						<li>
+							<div class="title-and-date">
+								<span class="title">Title 3</span>
+								<span class="date">March 22, 2017</span>
+							</div>
+							<div class="categories">
+								<span class="category">and etc</span>
+								<span class="category">another one</span>
+							</div>
+							<img class="current-slide-img" src="img/933.png">
+							<div class="excerpt">
+								excerpt the third
 							</div>
 						</li>
 					</ul>
@@ -213,7 +235,8 @@ $( document ).ready( function() {
 	 * Based on the slides, populate the title container div with titles
 	 */
 	function populateTitles() {
-
+		var allSlideTitles = $( '.slide-list li .title-and-date' );
+		$( '.container-titles' ).append(allSlideTitles); // actually seems to move the div from the li to the title container
 	}
 
 	/**
@@ -222,35 +245,33 @@ $( document ).ready( function() {
 	 */
 	function setTitleHeights() {
 		
-		var numSlides = $( '.slide-title' ).length; // get how many titles/slides
-		
-		var slideHeight = $( '.container-slides img' ).height(); // get slide height
-		var exerptHeight = $( '.excerpt' ).height();
+		var slideHeight = $( '.slide-list li' ).height(); // get slide height
+		//var exerptHeight = $( '.slide-list li .excerpt' ).height();
 		var navHeight = $( '.slide-nav' ).height();
 
 		//var slideContainerHeight = $( '.container-slides' ).height();
-		var slideContainerHeight = slideHeight + exerptHeight + navHeight;
+		var slideContainerHeight = slideHeight + navHeight;
 
-		var borderHeight = numSlides; // compensate for total height taken by borders
+		var borderHeight = NUM_SLIDES; // compensate for total height taken by borders
 
 		// calculate title height - (slide height) / (# of titles/# of slides)
-		var titleHeight = (slideContainerHeight - borderHeight) / numSlides;
+		var titleHeight = (slideContainerHeight - borderHeight) / NUM_SLIDES;
 
 		// assign height to title element class
 		// use innerheight because it takes padding into consideration
-		$( '.slide-title' ).innerHeight(titleHeight);
+		$( '.title-and-date' ).innerHeight(titleHeight);
 
 		// assign slide height to slide ul container
 		// this is to make sure the container doesn't collapse,
 		// nor remain too big
-		$( '.image-list' ).height(slideHeight);
+		//$( '.image-list' ).height(slideHeight);
 
-		//console.log(slideHeight,exerptHeight,navHeight);
-		//console.log("slide number: " + numSlides);
-		//console.log("slide height: " + slideHeight);
-		//console.log("slide container height: " + slideContainerHeight);
-		//console.log("title height: " + titleHeight);
-		//console.log("-------");
+		console.log(slideHeight,navHeight);
+		console.log("slide number: " + NUM_SLIDES);
+		console.log("slide height: " + slideHeight);
+		console.log("slide container height: " + slideContainerHeight);
+		console.log("title height: " + titleHeight);
+		console.log("-------");
 	}
 
 	/**
@@ -280,13 +301,13 @@ $( document ).ready( function() {
 		// ---------------------------------------------
 
 		var count = 1;
-
+/*
 		setInterval(function() {
 			
 			// hide all
 			allSlides.hide();
 			// show next one
-			console.log(count);
+			//console.log(count);
 			allSlides.eq(count).show();
 
 			// check if time to cycle back to beginning, if not count++
@@ -295,9 +316,9 @@ $( document ).ready( function() {
 			} else {
 				count++;
 			}
-			console.log(count);
-			console.log("----")
-		}, 3000);
+			//console.log(count);
+			//console.log("----")
+		}, 3000);*/
 	
 	}
 	
@@ -305,6 +326,8 @@ $( document ).ready( function() {
 	 * go ahead, do your thing!
 	 */
 	//setHeights();
+	populateTitles();
+	setTitleHeights();
 	generateDots();
 	slide();
 
