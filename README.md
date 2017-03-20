@@ -3,14 +3,13 @@
 ## Pre-requisite(s) for Use 
 - Images added must be of the same size if you want consistency. (You decide what looks good, but the demo uses 900x300.)
 
-## Todo
 
-#### Key
+## Key for Task List
 - [] to be done
 - [+] did this but it wasn't on the original todo list
 - [x] done from todo list
 
----
+## Todo
 
 - [] sliding functionality - highlight current title on right side corresponding to current slide
 - [] nav functionality - left/right arrows flip through slides
