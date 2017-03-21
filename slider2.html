@@ -229,6 +229,7 @@ $( document ).ready( function() {
 
 	var NUM_SLIDES = $( '.slide-list li' ).length;
 	var allSlideTitles = $( '.slide-list li .title-and-date' ); // keeping this out here so others can use it
+	var currentSlide = 0; // begins at 0
 
 	//console.log('NUM_SLIDES: ' + NUM_SLIDES);
 
@@ -285,6 +286,7 @@ $( document ).ready( function() {
 
 	/**
 	 * The actual flipping through action of the slides.
+	 * Manipulates currentSlide global
 	 */
 	function slide() {
 		// ---------------------------------
@@ -294,36 +296,37 @@ $( document ).ready( function() {
 		var allSlides = $( '.slide-list li' ); // get all slides in easy array format
 
 		allSlides.hide(); // hide all slides
-		allSlides.eq(0).show(); // show the first
-		allSlideTitles.eq(0).addClass( 'current' ); // highlight the first title
+		allSlides.eq(currentSlide).show(); // show the first
+		allSlideTitles.eq(currentSlide).addClass( 'current' ); // highlight the first title
 
 		// ---------------------------------------------
 		// then, in order, show each slide one at a time
 		// with a sensible interval
 		// ---------------------------------------------
 
-		var count = 1;
+		currentSlide += 1; // instead of count, use currentSlide global
 
 		setInterval(function() {
 			
-			// hide all
-			allSlides.hide();
+			allSlides.hide(); // hide all slides
+			allSlides.eq(currentSlide).show(); // show next one
+			allSlideTitles.eq(currentSlide-1).removeClass( 'current' ); // remove highlight from previous slide title
+			allSlideTitles.eq(currentSlide).addClass( 'current' ); // add highlight to current slide title
 
-			// show next one
-			//console.log(count);
-			allSlides.eq(count).show();
-			allSlideTitles.eq(count-1).removeClass( 'current' );
-			allSlideTitles.eq(count).addClass( 'current' );
-			// check if time to cycle back to beginning, if not count++
-			if ( count == NUM_SLIDES - 1 ) {
-				count = 0;
+			// check if it's time to cycle back to beginning, if not currentSlide++
+			if ( currentSlide == NUM_SLIDES - 1 ) {
+				currentSlide = 0;
 			} else {
-				count++;
+				currentSlide++;
 			}
 			//console.log(count);
 			//console.log("----")
 		}, 3000);
 	
+	}
+
+	function arrowFlip() {
+		
 	}
 	
 	/**
