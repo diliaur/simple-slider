@@ -191,76 +191,6 @@
 								excerpt the third
 							</div>
 						</li>
-						<li>
-							<div class="title-and-date">
-								<span class="title">Title 4</span>
-								<span class="date">March 22, 2017</span>
-							</div>
-							<div class="categories">
-								<span class="category">and etc</span>
-								<span class="category">another one</span>
-							</div>
-							<img class="current-slide-img" src="img/933.png">
-							<div class="excerpt">
-								excerpt the fourth
-							</div>
-						</li>
-						<li>
-							<div class="title-and-date">
-								<span class="title">Title 5</span>
-								<span class="date">March 22, 2017</span>
-							</div>
-							<div class="categories">
-								<span class="category">and etc</span>
-								<span class="category">another one</span>
-							</div>
-							<img class="current-slide-img" src="img/933.png">
-							<div class="excerpt">
-								excerpt the fifth
-							</div>
-						</li>
-						<li>
-							<div class="title-and-date">
-								<span class="title">Title 6</span>
-								<span class="date">March 22, 2017</span>
-							</div>
-							<div class="categories">
-								<span class="category">and etc</span>
-								<span class="category">another one</span>
-							</div>
-							<img class="current-slide-img" src="img/933.png">
-							<div class="excerpt">
-								excerpt the sixth
-							</div>
-						</li>
-						<li>
-							<div class="title-and-date">
-								<span class="title">Title 7</span>
-								<span class="date">March 22, 2017</span>
-							</div>
-							<div class="categories">
-								<span class="category">and etc</span>
-								<span class="category">another one</span>
-							</div>
-							<img class="current-slide-img" src="img/933.png">
-							<div class="excerpt">
-								excerpt the seventh
-							</div>
-						</li>
-						<li>
-							<div class="title-and-date">
-								<span class="title">Title 8</span>
-								<span class="date">March 22, 2017</span>
-							</div>
-							<div class="categories">
-								<span class="category">and etc</span>
-								<span class="category">another one</span>
-							</div>
-							<img class="current-slide-img" src="img/933.png">
-							<div class="excerpt">
-								excerpt the eighth
-							</div>
-						</li>
 					</ul>
 					<div class="slide-nav">
 						<div class="arrow-left">
@@ -298,6 +228,7 @@ $( document ).ready( function() {
 	 */
 
 	var NUM_SLIDES = $( '.slide-list li' ).length;
+	var allSlideTitles = $( '.slide-list li .title-and-date' ); // keeping this out here so others can use it
 
 	//console.log('NUM_SLIDES: ' + NUM_SLIDES);
 
@@ -305,8 +236,7 @@ $( document ).ready( function() {
 	 * Based on the slides, populate the title container div with titles
 	 */
 	function populateTitles() {
-		var allSlideTitles = $( '.slide-list li .title-and-date' );
-		$( '.container-titles' ).append(allSlideTitles); // actually seems to move the div from the li to the title container
+		$( '.container-titles' ).append(allSlideTitles); // move allSlideTitles to target div
 	}
 
 	/**
@@ -362,24 +292,28 @@ $( document ).ready( function() {
 		// hide all slides but the first one
 		// ---------------------------------
 		var allSlides = $( '.slide-list li' ); // get all slides in easy array format
+
 		allSlides.hide(); // hide all slides
 		allSlides.eq(0).show(); // show the first
+		allSlideTitles.eq(0).addClass( 'current' ); // highlight the first title
 
 		// ---------------------------------------------
 		// then, in order, show each slide one at a time
-		// and give it a sensible interval, for godssake
+		// with a sensible interval
 		// ---------------------------------------------
 
 		var count = 1;
-/*
+
 		setInterval(function() {
 			
 			// hide all
 			allSlides.hide();
+
 			// show next one
 			//console.log(count);
 			allSlides.eq(count).show();
-
+			allSlideTitles.eq(count-1).removeClass( 'current' );
+			allSlideTitles.eq(count).addClass( 'current' );
 			// check if time to cycle back to beginning, if not count++
 			if ( count == NUM_SLIDES - 1 ) {
 				count = 0;
@@ -388,7 +322,7 @@ $( document ).ready( function() {
 			}
 			//console.log(count);
 			//console.log("----")
-		}, 3000);*/
+		}, 3000);
 	
 	}
 	
