@@ -1,0 +1,145 @@
+<html>
+<head>
+	<title>a slider</title>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<style type="text/css">
+		.slider-wrapper {
+			position: relative;
+			width: 900px;
+			height: 300px;
+			border: 1px solid black;
+			font-family: sans-serif;
+			font-size: 12pt;
+			overflow: hidden;
+		}
+		ul.slider {
+			position: relative;//
+			list-style: none;
+			margin: 0; padding: 0;
+		}
+		ul.slider li {
+			height: 300;
+			position: relative;
+		}
+		span.slider-title {
+			position: absolute;
+			bottom: 55px;
+			height: 30px;
+			z-index: 10;
+			background-color: rgba(0,0,0,.6);
+			color: #ccc;
+			font-size: 1.8em;
+			padding: 5px;
+		}
+		span.slider-excerpt {
+			position: absolute;
+			bottom: 0px;
+			width: 100%;
+			height: 40px;
+			z-index: 10;
+			background-color: rgba(0,0,0,.6);
+			color: #ccc;
+			font-size: 1em;
+			padding: 5px;
+		}
+		.slider-wrapper img {
+			position: absolute;
+			top: 0px; left: 0px;
+			width: 100%;
+			height: auto;
+			z-index: 9;
+		}
+		li.dots {
+			position: absolute!important;
+			top: 0px;
+			height: 20px!important;
+			width: 100%;
+			text-align: center;
+			z-index: 10;
+			color: white;
+		}
+		.slider-prev, .slider-next {
+			position: absolute;
+			top: 135;
+			z-index: 10;
+			padding: 10px;
+			background-color: rgba(0,0,0,0.6);
+			color: #ccc;
+		}
+		.slider-prev {
+			left: 0;
+		}
+		.slider-next {
+			right: 0;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="slider-wrapper">
+		<div class="slider-prev">prev</div>
+		<ul class="slider">
+			<li>
+				<span class="slider-title">Apocalypse Child</span>
+				<span class="slider-excerpt">An excerpt from a film: Apocalypse Child</span>
+				<img src="img/hiff_apocalypseChild.jpg">
+			</li>
+			<li>
+				<span class="slider-title">One Day</span>
+				<span class="slider-excerpt">An excerpt from a film: One Day</span>
+				<img src="img/hiff_oneday.jpg">
+			</li>
+			<li>
+				<span class="slider-title">Ties That Bind</span>
+				<span class="slider-excerpt">An excerpt from a film: Ties That Bind</span>
+				<img src="img/hiff_tiesThatBind.jpg">
+			</li>
+		</ul>
+		<div class="slider-next">next</div>
+	</div>
+
+<script type="text/javascript">
+	jQuery( document ).ready ( // every JS callback has to be inside some kind of other func
+		function() {
+
+			// ----------------- //
+			//       setup       //
+			// ----------------- //
+
+			allSlides = $("ul.slider li"); // grab all the li's in the slider ul
+			allSlides.hide(); // hide everything at first
+			allSlides.eq(0).show(); // immediately (imp!) show only the first one
+
+			slideCount = 1; // this is for the cycle loop. start at 1 (2nd) because 0 (1st) already shown above
+
+			// ---------------------------------- //
+			// setup slider dots/numbers/whatever //
+			// ---------------------------------- //
+
+			$("ul.slider li:last").after("<li class='dots'>");
+			//for (i = allSlides.length; i > 0; i--) {
+			for (i = 0; i < allSlides.length; i++) {
+				$("ul.slider li.dots").append("[" + i + "]");
+			}
+			$("ul.slider li:last").after("</li>");
+
+			// ------------------------------ //
+			// this controls the images going //
+			// ------------------------------ //
+
+			setInterval(function() {
+				allSlides.hide(); // again hide all
+				allSlides.eq(slideCount).show(); // immediately show the NEXT one
+				  // ^above needs to be outside the loop for better timing
+				if ( slideCount < 2) {
+					slideCount+=1;
+				} else {
+					slideCount=0;
+				}
+			}, 3000);
+		}
+	);
+</script>
+</body>
+</html>
