@@ -14,9 +14,10 @@
 - [] nav functionality - left/right arrows flip through slides
 - [] nav functionality - dots can be clicked and brought to the right slide
 - [] nav functionality - select by title on right side
-- [] control length of titles and excerpts (ellipsis '...' after max # of characters) for display purposes
+- [] display - control length of titles and excerpts (ellipsis '...' after max # of characters)
+- [] display - decide breakpoint: when to break title container off and display it underneath the slider image (otherwise titles stay longer than image and look bad)
 - [] calculate size of titles based on # of slides
-- [] complete a mockup that looks like finished product, to make sure styles are set
+~~~- [] complete a mockup that looks like finished product, to make sure styles are set~~~
 - [] Separate JS, CSS, and HTML into separate files
 - [] wordpress-ify - auto-populate slides, titles, excerpts, etc.
 - [] wordpress-ify - display categories
