@@ -367,7 +367,9 @@ $( document ).ready( function() {
 	 * the height of the titles
 	 */
 	$( window ).resize( function() {
-		//setHeights();
+		setTitleHeights();
+		// do a calculation to make sure the title & date would not be obscured.
+		// if (title+date height) > span height then stop resizing and send the titles to below the images. this method should then work no matter how many titles there are.
 	});
 });
 

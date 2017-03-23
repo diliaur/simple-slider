@@ -15,6 +15,7 @@
 - [] nav functionality - select by title on right side
 - [] display - control length of titles and excerpts (ellipsis '...' after max # of characters)
 - [] display - decide breakpoint: when to break title container off and display it underneath the slider image (otherwise titles stay longer than image and look bad)
+- [] display - add test to see when title divs are too small (i.e. when the title and date are getting cut off) and use that to 
 - [] calculate size of titles based on # of slides
 - ~~~[] complete a mockup that looks like finished product, to make sure styles are set~~~
 - [] test compatibility with different browsers + versions
