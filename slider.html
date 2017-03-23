@@ -219,6 +219,8 @@
 	</div>
 </div>
 
+<span class="pause">Pause</span>
+
 <script>
 
 $( document ).ready( function() {
@@ -288,12 +290,12 @@ $( document ).ready( function() {
 	 * The actual flipping through action of the slides.
 	 * Manipulates currentSlide global
 	 */
-	function slide() {
+	function slideSetup() {
 		// ---------------------------------
 		// SETUP - initial page load
 		// hide all slides but the first one
 		// ---------------------------------
-		var allSlides = $( '.slide-list li' ); // get all slides in easy array format
+		var allSlides = $( '.slide-list li' ); // get all slides in easy array format NOTE - WANT TO MAKE THIS GLOBAL?? used in multiple places
 
 		allSlides.hide(); // hide all slides
 		allSlides.eq(currentSlide).show(); // show the first
@@ -304,10 +306,11 @@ $( document ).ready( function() {
 		// with a sensible interval
 		// ---------------------------------------------
 
-		currentSlide += 1; // instead of count, use currentSlide global
+		currentSlide += 1; // instead of count, use currentSlide global	
+	}
 
-		setInterval(function() {
-			
+	function slide() {
+			var allSlides = $( '.slide-list li' ); // want to make this global?
 			allSlides.hide(); // hide all slides
 			allSlides.eq(currentSlide).show(); // show next one
 			allSlideTitles.eq(currentSlide-1).removeClass( 'current' ); // remove highlight from previous slide title
@@ -321,10 +324,7 @@ $( document ).ready( function() {
 			}
 			//console.log(count);
 			//console.log("----")
-		}, 3000);
-	
 	}
-
 	/**
 	 * LEFT ARROW CLICK event - go back a slide
 	 */
@@ -339,6 +339,19 @@ $( document ).ready( function() {
 
 	});
 	
+	/** 
+	 * Pause click test event
+	 */
+	$( '.pause' ).click(function(){
+		if ( $('.pause').text() == "Pause" ) {
+			clearInterval(slideAction);
+			$('.pause').text("Unpause");
+		} else {
+			slideAction = setInterval(slide,500);
+			$('.pause').text("Pause");
+		}
+	});
+
 	/**
 	 * go ahead, do your thing!
 	 */
@@ -346,7 +359,8 @@ $( document ).ready( function() {
 	populateTitles();
 	setTitleHeights();
 	generateDots();
-	slide();
+	slideSetup();
+	var slideAction = setInterval(slide, 3000); // should declare slideAction further up... necessary? 
 
 	/** 
 	 * Every time window resizes, check the slides height and assign it to
