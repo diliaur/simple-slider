@@ -22,6 +22,7 @@
 - [] Separate JS, CSS, and HTML into separate files
 - [] wordpress-ify - auto-populate slides, titles, excerpts, etc.
 - [] wordpress-ify - display categories
+- [] refactor code
 
 ## Done
 - [x] (Mar 21 17) sliding functionality - highlight current title on right side corresponding to current slide
