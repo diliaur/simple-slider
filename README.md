@@ -10,6 +10,7 @@
 - [x] done from todo list
 
 ## Todo
+- [] slide functionality - split slide() up into prev() and forward()
 - [] nav functionality - left/right arrows flip through slides
 - [] nav functionality - dots can be clicked and brought to the right slide
 - [] nav functionality - select by title on right side
@@ -22,7 +23,7 @@
 - [] Separate JS, CSS, and HTML into separate files
 - [] wordpress-ify - auto-populate slides, titles, excerpts, etc.
 - [] wordpress-ify - display categories
-- [] refactor code
+- [] refactor code to look neater
 
 ## Done
 - [x] (Mar 21 17) sliding functionality - highlight current title on right side corresponding to current slide
