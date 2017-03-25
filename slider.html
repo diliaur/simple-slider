@@ -315,8 +315,6 @@ $( document ).ready( function() {
 	 */
 	function slide() {
 
-			
-
 			//allSlideTitles.eq(currentSlide).removeClass( 'current' );
 			//console.log("highlight removed from slide " + currentSlide);
 			// do the increment first rather than last so that the entire method
@@ -329,17 +327,21 @@ $( document ).ready( function() {
 				currentSlide++; // increment
 			}
 
+			console.log("slide before add/remove: " + currentSlide);
 			var allSlides = $( '.slide-list li' ); // want to make this global?
 			allSlides.hide(); // hide all slides
 			allSlides.eq(currentSlide).show(); // show current
 
+			console.log("slide. currentSlide - 1: " + (currentSlide - 1));
 			allSlideTitles.eq(currentSlide - 1).removeClass( 'current' ); // remove highlight from previous slide title
 			// currentSlide-1 works even for negative indices because
 			//     .eq(), given a negative index, starts from the end of the
 			//     list instead of the beginning and counts backward.
 			//     since currentSlide going negative will always only go up
 			//     to -1, this wraps it back to the end of the list
+			console.log("slide. currentSlide: " + currentSlide);
 			allSlideTitles.eq(currentSlide).addClass( 'current' ); // add highlight to current slide title
+			console.log("---");
 	}
 	/**
 	 * LEFT ARROW CLICK event - go back a slide
@@ -356,9 +358,14 @@ $( document ).ready( function() {
 		} else {
 			currentSlide = NUM_SLIDES - 2;
 		}
+		console.log("left: " + currentSlide);
+		// extra removeClass to capture cases where previous arrow is clicked
+		//     if prev arrow is unclicked, aka regular movement, this line
+		//     doesn't affect the sliding feature. keeping this logic in here
+		//     because it is directly related to the left arrow click.
+		allSlideTitles.eq(currentSlide - 1).removeClass( 'current' );
 		slide(); // show the desired slide with the newly decremented currentSlide
-		//slideAction = setInterval(slide,3000);
-
+		slideAction = setInterval(slide,3000);
 	});
 	
 	/**
@@ -379,7 +386,7 @@ $( document ).ready( function() {
 			clearInterval(slideAction);
 			$('.pause').text("Unpause");
 		} else {
-			slideAction = setInterval(slide,500);
+			slideAction = setInterval(slide,3000);
 			$('.pause').text("Pause");
 		}
 	});
