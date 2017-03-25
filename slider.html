@@ -314,32 +314,30 @@ $( document ).ready( function() {
 	 * pass in the desired slide #
 	 */
 	function slide() {
-
 			//allSlideTitles.eq(currentSlide).removeClass( 'current' );
 			//console.log("highlight removed from slide " + currentSlide);
 			// do the increment first rather than last so that the entire method
 			// has only one currentSlide value to contend with, rather than one
 			// at the beginning and then another one at the end, which makes it
 			// harder to troubleshoot
-			if ( currentSlide == NUM_SLIDES - 1 ) { // if at slide max
+			if ( currentSlide == NUM_SLIDES - 1 ) { // if at slide max CHANGE TO >=?
 				currentSlide = 0; // reset
 			} else { // otherwise if NOT at slide max
 				currentSlide++; // increment
 			}
 
-			console.log("slide before add/remove: " + currentSlide);
 			var allSlides = $( '.slide-list li' ); // want to make this global?
 			allSlides.hide(); // hide all slides
+			console.log("slide to show: " + currentSlide);
 			allSlides.eq(currentSlide).show(); // show current
-
-			console.log("slide. currentSlide - 1: " + (currentSlide - 1));
+			console.log("slide to unhilight: " + (currentSlide-1));
 			allSlideTitles.eq(currentSlide - 1).removeClass( 'current' ); // remove highlight from previous slide title
+			
 			// currentSlide-1 works even for negative indices because
 			//     .eq(), given a negative index, starts from the end of the
 			//     list instead of the beginning and counts backward.
 			//     since currentSlide going negative will always only go up
 			//     to -1, this wraps it back to the end of the list
-			console.log("slide. currentSlide: " + currentSlide);
 			allSlideTitles.eq(currentSlide).addClass( 'current' ); // add highlight to current slide title
 			console.log("---");
 	}
@@ -347,9 +345,9 @@ $( document ).ready( function() {
 	 * LEFT ARROW CLICK event - go back a slide
 	 */
 	$( '.arrow-left' ).click(function(){
-		console.log("0 current: " + currentSlide);
 		// stop the sliding action
 		clearInterval(slideAction);
+		
 		// decrement the global (checking if it's already 0 to wrap)
 		// decrements by 2 because calling slide() will increment currentSlide
 		//     at the beginning
@@ -358,7 +356,7 @@ $( document ).ready( function() {
 		} else {
 			currentSlide = NUM_SLIDES - 2;
 		}
-		console.log("left: " + currentSlide);
+
 		// extra removeClass to capture cases where previous arrow is clicked
 		//     if prev arrow is unclicked, aka regular movement, this line
 		//     doesn't affect the sliding feature. keeping this logic in here
@@ -372,10 +370,21 @@ $( document ).ready( function() {
 	 * RIGHT ARROW CLICK event - go forward a slide
 	 */
 	$( '.arrow-right' ).click(function(){
+		console.log("current: " + currentSlide);
+
 		// stop the sliding action
-		// increment the global (checking if it's already allSlides.length to wrap)
-		// pause for a bit ? so people can check out the slide
-		// restart the sliding action
+		clearInterval(slideAction);
+		
+		// increment the global (checking if it's already slide max to wrap)
+		if ( currentSlide >= NUM_SLIDES - 1 ) {
+			currentSlide = 0;
+		} else {
+			currentSlide++;
+		}
+		console.log("next: " + currentSlide);
+
+		slide(); // show the desired slide with the newly decremented currentSlide
+		//slideAction = setInterval(slide,3000);
 	});
 	
 	/** 
