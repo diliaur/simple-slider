@@ -374,14 +374,46 @@ $( document ).ready( function() {
 
 	/** 
 	 * Retreat slides by 1
+	 * modifies @currentSlide global
+	 * note: seems to make a weird skipping effect when changing slides,
+	 *       e.g. from the first to the last when going around, or sometimes
+	 *       in the middle. need to check if this repeats on other machines.
+	 *       may not be an issue, since this method will be used once at a time
+	 *       when arrows are clicked, and not for continuous motion like 
+	 *       slideForward()
 	 */
 	function slideBackward() {
+		//console.log("----")
 		// get all slides
-		// subtrack 1 from currentSlide global
+		var allSlides = $( '.slide-list li' );
+
+		// subtract 1 from currentSlide global
 		//     make sure it is not 0, or wrap around to max
+		if ( currentSlide > 0 ) {
+			currentSlide--;
+		} else {
+			currentSlide = SLIDE_MAX;
+		}
+
 		// hide all slides
+		allSlides.hide();
+
 		// show slide.eq(currentSlide)
-		// hide prev slide, slide.eq(currentSlide+1)
+		allSlides.eq(currentSlide).show();
+
+		// hide prev slide title, slideTitle.eq(currentSlide+1)
+		if (currentSlide == SLIDE_MAX) {
+			allSlideTitles.eq(0).removeClass( 'current' );
+			//console.log("remove from " + 0);
+		} else {
+			allSlideTitles.eq(currentSlide+1).removeClass( 'current' );
+			//console.log("remove from " + (currentSlide+1));
+		}
+		
+		// show current slide title
+		allSlideTitles.eq(currentSlide).addClass( 'current' );
+		//console.log("show title " + currentSlide);
+		//console.log("---");
 	}
 
 	/**
@@ -451,7 +483,7 @@ $( document ).ready( function() {
 	setTitleHeights();
 	generateDots();
 	slideSetup();
-	var slideAction = setInterval(slideForward, 3000); // should declare slideAction further up... necessary? 
+	var slideAction = setInterval(slideBackward, 3000); // should declare slideAction further up... necessary? 
 
 	/** 
 	 * Every time window resizes, check the slides height and assign it to
