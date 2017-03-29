@@ -237,6 +237,7 @@ $( document ).ready( function() {
 	 */
 
 	var NUM_SLIDES = $( '.slide-list li' ).length;
+	var SLIDE_MAX = NUM_SLIDES - 1;
 	var allSlideTitles = $( '.slide-list li .title-and-date' ); // keeping this out here so others can use it
 	var currentSlide = 0; // begins at 0
 
@@ -348,11 +349,27 @@ $( document ).ready( function() {
 	 */
 	function slideForward() {
 		// get all slides
+		var allSlides = $( '.slide-list li' );
+
 		// add 1 to currentSlide global
 		//     make sure it is not max, or wrap around to 0
+		if ( currentSlide < SLIDE_MAX ) {
+			currentSlide++;
+		} else {
+			currentSlide = 0;
+		}
+
 		// hide all slides
+		allSlides.hide();
+
 		// show slide.eq(currentSlide)
-		// hide prev slide, e.g. slide.eq(currentSlide-1)
+		allSlides.eq(currentSlide).show();
+
+		// hide prev slide title, e.g. slideTitles.eq(currentSlide-1)
+		allSlideTitles.eq(currentSlide-1).removeClass( 'current' );
+
+		// show current slide title
+		allSlideTitles.eq(currentSlide).addClass( 'current' );
 	}
 
 	/** 
@@ -434,7 +451,7 @@ $( document ).ready( function() {
 	setTitleHeights();
 	generateDots();
 	slideSetup();
-	var slideAction = setInterval(slide, 3000); // should declare slideAction further up... necessary? 
+	var slideAction = setInterval(slideForward, 3000); // should declare slideAction further up... necessary? 
 
 	/** 
 	 * Every time window resizes, check the slides height and assign it to
