@@ -341,6 +341,32 @@ $( document ).ready( function() {
 			allSlideTitles.eq(currentSlide).addClass( 'current' ); // add highlight to current slide title
 			console.log("---");
 	}
+
+	/**
+	 * Advance slides by 1
+	 * modifies @currentSlide global
+	 */
+	function slideForward() {
+		// get all slides
+		// add 1 to currentSlide global
+		//     make sure it is not max, or wrap around to 0
+		// hide all slides
+		// show slide.eq(currentSlide)
+		// hide prev slide, e.g. slide.eq(currentSlide-1)
+	}
+
+	/** 
+	 * Retreat slides by 1
+	 */
+	function slideBackward() {
+		// get all slides
+		// subtrack 1 from currentSlide global
+		//     make sure it is not 0, or wrap around to max
+		// hide all slides
+		// show slide.eq(currentSlide)
+		// hide prev slide, slide.eq(currentSlide+1)
+	}
+
 	/**
 	 * LEFT ARROW CLICK event - go back a slide
 	 */
