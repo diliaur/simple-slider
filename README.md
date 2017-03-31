@@ -20,10 +20,11 @@
 - [] calculate size of titles based on # of slides
 - ~~~[] complete a mockup that looks like finished product, to make sure styles are set~~~
 - [] test compatibility with different browsers + versions
-- [] Separate JS, CSS, and HTML into separate files
+- [] refactor - separate JS, CSS, and HTML into separate files
+- [] refactor - make code look neater (organize & comment)
 - [] wordpress-ify - auto-populate slides, titles, excerpts, etc.
 - [] wordpress-ify - display categories
-- [] refactor code to look neater
+- [] wordpress-ify - jQuery $() workaround
 
 ## Done
 - [x] (Mar 28 17) slide functionality - split slide() up into prev() and forward()

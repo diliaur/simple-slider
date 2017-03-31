@@ -423,22 +423,11 @@ $( document ).ready( function() {
 		// stop the sliding action
 		clearInterval(slideAction);
 		
-		// decrement the global (checking if it's already 0 to wrap)
-		// decrements by 2 because calling slide() will increment currentSlide
-		//     at the beginning
-		if ( currentSlide >= 1) {
-			currentSlide-=2;
-		} else {
-			currentSlide = NUM_SLIDES - 2;
-		}
+		// go backward 1
+		slideBackward();
 
-		// extra removeClass to capture cases where previous arrow is clicked
-		//     if prev arrow is unclicked, aka regular movement, this line
-		//     doesn't affect the sliding feature. keeping this logic in here
-		//     because it is directly related to the left arrow click.
-		allSlideTitles.eq(currentSlide - 1).removeClass( 'current' );
-		slide(); // show the desired slide with the newly decremented currentSlide
-		slideAction = setInterval(slide,3000);
+		// restart the sliding action
+		slideAction = setInterval(slideForward,3000);
 	});
 	
 	/**
@@ -483,7 +472,7 @@ $( document ).ready( function() {
 	setTitleHeights();
 	generateDots();
 	slideSetup();
-	var slideAction = setInterval(slideBackward, 3000); // should declare slideAction further up... necessary? 
+	var slideAction = setInterval(slideForward, 3000); // should declare slideAction further up... necessary? 
 
 	/** 
 	 * Every time window resizes, check the slides height and assign it to
