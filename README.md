@@ -6,11 +6,11 @@
 
 ## Key for Task List
 - [] to be done
-- [+] did this but it wasn't on the original todo list
+- [+] did this but it wasn't on the todo list
 - [x] done from todo list
 
 ## Todo
-- [] slide functionality - split slide() up into prev() and forward()
+
 - [] nav functionality - left/right arrows flip through slides
 - [] nav functionality - dots can be clicked and brought to the right slide
 - [] nav functionality - select by title on right side
@@ -26,6 +26,7 @@
 - [] refactor code to look neater
 
 ## Done
+- [x] (Mar 28 17) slide functionality - split slide() up into prev() and forward()
 - [x] (Mar 21 17) sliding functionality - highlight current title on right side corresponding to current slide
 - [x] (Mar 20 17) populate titles based on slides
 - [x] (Mar 20 17) sliding functionality - flipping through images and excerpts
