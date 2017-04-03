@@ -25,7 +25,6 @@
 - [] test compatibility with different browsers + versions
 - [] refactor - separate JS, CSS, and HTML into separate files
 - [] refactor - make code look neater (organize & comment)
-- [] move functions outside of document.ready() if they don't need to be there
 - [] better way to manipulate currentSlide global
 
 ### Wordpressify
