@@ -315,6 +315,9 @@ $( document ).ready( function() {
 		// get dots
 		var dots = $( '.dots ul li' );
 
+		// make all dots empty - for some reason this prevents first dot from being filled on setup
+		// $( '.dots ul li' ).html("&#9633");
+
 		// use global to turn empty dot into filled dot
 		dots.eq(current).html( "&#9632;" );
 
@@ -429,6 +432,42 @@ $( document ).ready( function() {
 	}
 
 	/**
+	 * Jump to any slide by given index
+	 * Updates currentSlide..?
+	 */
+	function slideJumpTo(current) {
+		// test if current is within bounds
+		if (current >= 0 && current <= SLIDE_MAX) {
+
+			// first remove title class 'current' so no fancy math is needed later
+			allSlideTitles.eq(currentSlide).removeClass('current');
+
+			currentSlide = current; // update currentSlide
+
+			var allSlides = $( '.slide-list li' );
+
+			// stop sliding motion
+			//clearInterval(slideAction);
+
+			// hide all slides
+			allSlides.hide();
+
+			// show current slide as per parameter
+			allSlides.eq(currentSlide).show();
+
+			// update title highlight
+			allSlideTitles.eq(currentSlide).addClass('current');
+
+			// update dot
+			manipulateDots(currentSlide); // this doesn't seem to work in this context
+
+			// restart sliding motion
+			//slideAction = setInterval(slideForward,3000);
+
+		} // else do nothing
+	}
+
+	/**
 	 * LEFT ARROW CLICK event - go back a slide
 	 */
 	$( '.arrow-left' ).click(function(){
@@ -472,15 +511,25 @@ $( document ).ready( function() {
 	/**
 	 * For when a dot is clicked!
 	 * This will manipulate currentSlide.
+	 * Note: Had to use on() instead of click() because dots ul was generated
+	 *       by jQuery; click() only attaches to elements which existed at
+	 *       document ready
 	 */
-	$( 'dots ul li').click( function() { //maybe eventually put callback into actual function..?
+	$( '.dots' ).on("click", "ul li", function(event) { //maybe eventually put callback into actual function..?
+		// get dots ul li
+		var dots = $( '.dots ul li ');
+
 		// stall sliding action
+		clearInterval(slideAction);
 
-		// check what # of dot was clicked
+		// check what # of dot was clicked & assign it to currentSlide
+		currentSlide = dots.index(event.target);
+		console.log(currentSlide);
 
-		// assign current global to dot #
+		slideJumpTo(currentSlide);
 
 		// restart sliding action - should take care of the dot change too
+		slideAction = setInterval(slideForward,3000);
 	});
 
 	/**
