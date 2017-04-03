@@ -100,10 +100,13 @@ $( document ).ready( function() {
 		// SETUP - initial page load
 		// hide all slides but the first one
 		// ---------------------------------
-		var allSlides = $( '.slide-list li' ); // get all slides in easy array format NOTE - WANT TO MAKE THIS GLOBAL?? used in multiple places
+		var allSlides = $( '.slide-list li' ); // get all slides in easy array format
 
 		allSlides.hide(); // hide all slides
-		allSlides.eq(currentSlide).show(); // show the first (is first because currentSlide is initialized to 0)
+
+		// show the first (is first because currentSlide is initialized to 0)
+		allSlides.eq(currentSlide).show();
+		
 		allSlideTitles.eq(currentSlide).addClass( 'current' ); // highlight the first title
 
 		manipulateDots(currentSlide); // setup initial dot to be filled
@@ -192,7 +195,8 @@ $( document ).ready( function() {
 	/**
 	 * Jump to any slide by given index
 	 * modifies currentSlide global
-	 * @param {newSlide} the slide to which the slider will jump when this method is called
+	 * @param {newSlide} the slide to which the slider will jump when this 
+	 *                   method is called
 	 */
 	function slideJumpTo( newSlide ) {
 		// test if current is within bounds
@@ -271,7 +275,7 @@ $( document ).ready( function() {
 	 *       by jQuery; click() only attaches to elements which existed at
 	 *       document ready
 	 */
-	$( '.dots' ).on("click", "ul li", function(event) { //maybe eventually put callback into actual function..?
+	$( '.dots' ).on("click", "ul li", function(event) { 
 		// get dots ul li
 		var dots = $( '.dots ul li ');
 

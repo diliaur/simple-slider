@@ -12,7 +12,7 @@
 ## Todo
 
 ### Display
-- [] display - title div slightly shorter than slide div
+- [] display - title div is slightly shorter than slide div
 - ~~~[] nav functionality - select by title on right side~~~
 - [] display - control length of titles and excerpts (ellipsis '...' after max # of characters)
 - [] display - add test to see when title divs are too small (i.e. when the title and date are getting cut off) and use that to 
@@ -25,6 +25,8 @@
 - [] test compatibility with different browsers + versions
 - [] refactor - make code look neater (organize & comment)
 - [] better way to manipulate currentSlide global
+- [] make dots click callback into own function (maybe)
+- [] make allSlides list a global since it's used in multiple places (may not matter)
 
 ### Wordpressify
 - [] wordpress-ify - auto-populate slides, titles, excerpts, etc.
