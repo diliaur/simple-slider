@@ -236,8 +236,7 @@
 
 <span class="pause">Pause</span>
 
-&#9675;&#9675;&#9675;&#9679;&#9679;&#9679;
-&#9632;&#9632;&#9633;&#9633;
+&#9675;&#9679;&#9632;&#9633;
 
 <script>
 
@@ -435,34 +434,30 @@ $( document ).ready( function() {
 	 * Jump to any slide by given index
 	 * Updates currentSlide..?
 	 */
-	function slideJumpTo(current) {
+	function slideJumpTo( newSlide ) {
 		// test if current is within bounds
-		if (current >= 0 && current <= SLIDE_MAX) {
-
-			// first remove title class 'current' so no fancy math is needed later
-			allSlideTitles.eq(currentSlide).removeClass('current');
-
-			currentSlide = current; // update currentSlide
+		if ( newSlide >= 0 && newSlide <= SLIDE_MAX) {
 
 			var allSlides = $( '.slide-list li' );
-
-			// stop sliding motion
-			//clearInterval(slideAction);
 
 			// hide all slides
 			allSlides.hide();
 
-			// show current slide as per parameter
-			allSlides.eq(currentSlide).show();
+			// show new slide as per parameter
+			allSlides.eq(newSlide).show();
+
+			// first remove title class 'current' so no fancy math is needed later
+			allSlideTitles.eq(currentSlide).removeClass('current');
 
 			// update title highlight
-			allSlideTitles.eq(currentSlide).addClass('current');
+			allSlideTitles.eq(newSlide).addClass('current');
 
 			// update dot
-			manipulateDots(currentSlide); // this doesn't seem to work in this context
+			console.log("jump: current- " + newSlide + ", prev- " + currentSlide);
 
-			// restart sliding motion
-			//slideAction = setInterval(slideForward,3000);
+			manipulateDots(newSlide,currentSlide); //next,prev as parameters 
+
+			currentSlide = newSlide; // finally, update currentSlide
 
 		} // else do nothing
 	}
@@ -510,7 +505,7 @@ $( document ).ready( function() {
 
 	/**
 	 * For when a dot is clicked!
-	 * This will manipulate currentSlide.
+	 * This will manipulate currentSlide because of the call to slideJumpTo().
 	 * Note: Had to use on() instead of click() because dots ul was generated
 	 *       by jQuery; click() only attaches to elements which existed at
 	 *       document ready
@@ -522,11 +517,14 @@ $( document ).ready( function() {
 		// stall sliding action
 		clearInterval(slideAction);
 
-		// check what # of dot was clicked & assign it to currentSlide
-		currentSlide = dots.index(event.target);
-		console.log(currentSlide);
+		// check what # of dot was clicked
+		//     previously had assigned value to currentSlide, but that seemed
+		//     to mess up the movement of the dots... once used a separate var,
+		//     nextSlide, everything cleared up.
+		nextSlide = dots.index(event.target);
+		console.log(nextSlide);
 
-		slideJumpTo(currentSlide);
+		slideJumpTo(nextSlide);
 
 		// restart sliding action - should take care of the dot change too
 		slideAction = setInterval(slideForward,3000);
