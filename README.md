@@ -10,20 +10,29 @@
 - [x] done from todo list
 
 ## Todo
+
+### Display
 - [] display - title div slightly shorter than slide div
-- [] nav functionality - dots can be clicked and brought to the right slide
-- [] nav functionality - select by title on right side
+- ~~~[] nav functionality - select by title on right side~~~
 - [] display - control length of titles and excerpts (ellipsis '...' after max # of characters)
 - [] display - decide breakpoint: when to break title container off and display it underneath the slider image (otherwise titles stay longer than image and look bad)
 - [] display - add test to see when title divs are too small (i.e. when the title and date are getting cut off) and use that to 
-- [] calculate size of titles based on # of slides
+- [] display - calculate size of titles based on # of slides
 - ~~~[] complete a mockup that looks like finished product, to make sure styles are set~~~
+
+### Navigation
+- [] nav functionality - dots can be clicked and brought to the right slide
+
+### Code refactoring & Testing
 - [] test compatibility with different browsers + versions
 - [] refactor - separate JS, CSS, and HTML into separate files
 - [] refactor - make code look neater (organize & comment)
+
+### Wordpressify
 - [] wordpress-ify - auto-populate slides, titles, excerpts, etc.
 - [] wordpress-ify - display categories
 - [] wordpress-ify - jQuery $() workaround
+- [] wordpress-ify - link titles to post
 
 ## Done
 - [x]+ (Apr 3 17) added dots generation as <ul> and also dot highlight in accordance with slide movement
