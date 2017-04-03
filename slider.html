@@ -236,6 +236,9 @@
 
 <span class="pause">Pause</span>
 
+&#9675;&#9675;&#9675;&#9679;&#9679;&#9679;
+&#9632;&#9632;&#9633;&#9633;
+
 <script>
 
 $( document ).ready( function() {
@@ -299,7 +302,7 @@ $( document ).ready( function() {
 	function generateDots() {
 		$( '.dots' ).append( "<ul>" );
 		for (var count = 0; count < NUM_SLIDES; count++) {
-			$( '.dots ul' ).append( "<li>&#9675;</>" ); // UNICODE "White Circle" U+25CB
+			$( '.dots ul' ).append( "<li>&#9633;</>" ); // UNICODE "White Circle" U+25CB
 		}
 	}
 
@@ -310,12 +313,13 @@ $( document ).ready( function() {
 	 */
 	function manipulateDots(index) {
 		// get dots
-		//var dots = $( '.dots' ).text();
+		var dots = $( '.dots ul li' );
 
-		//console.log(dots.eq(0));
 		// turn previously filled dot to empty dot
+		dots.eq(index).html( "&#9632;" );
 
 		// use global to turn empty dot into filled dot
+		dots.eq(index - 1).html( "&#9633;" );
 	}
 
 	/**
@@ -332,6 +336,8 @@ $( document ).ready( function() {
 		allSlides.hide(); // hide all slides
 		allSlides.eq(currentSlide).show(); // show the first (is first because currentSlide is initialized to 0)
 		allSlideTitles.eq(currentSlide).addClass( 'current' ); // highlight the first title
+
+		manipulateDots(currentSlide); // setup initial dot to be filled
 	}
 
 	/**
@@ -361,6 +367,9 @@ $( document ).ready( function() {
 
 		// show current slide title
 		allSlideTitles.eq(currentSlide).addClass( 'current' );
+
+		// advance dot
+		manipulateDots(currentSlide);
 	}
 
 	/** 
@@ -443,7 +452,7 @@ $( document ).ready( function() {
 			clearInterval(slideAction);
 			$('.pause').text("Unpause");
 		} else {
-			slideAction = setInterval(slide,3000);
+			slideAction = setInterval(slideForward,3000);
 			$('.pause').text("Pause");
 		}
 	});

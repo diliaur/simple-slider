@@ -6,7 +6,7 @@
 
 ## Key for Task List
 - [] to be done
-- [+] did this but it wasn't on the todo list
+- [x]+ did this but it wasn't on the todo list
 - [x] done from todo list
 
 ## Todo
@@ -26,6 +26,7 @@
 - [] wordpress-ify - jQuery $() workaround
 
 ## Done
+- [x]+ (Apr 3 17) added dots generation as <ul> and also dot highlight in accordance with slide movement
 - [x] (Mar 30 17) nav functionality - left/right arrows flip through slides
 - [x] (Mar 28 17) slide functionality - split slide() up into prev() and forward()
 - [x] (Mar 21 17) sliding functionality - highlight current title on right side corresponding to current slide
@@ -33,7 +34,7 @@
 - [x] (Mar 20 17) sliding functionality - flipping through images and excerpts
 - [x] (Mar 20 17) nav - display # of dots according to # of slides
 - [x] (Mar 20 17) reorganize so that each slide, title, categories, excerpt, etc. are together in one li for ease of wordpress-ifying
-- [+] (Mar 20 17) changed navigators to unicode symbols
+- [x]+ (Mar 20 17) changed navigators to unicode symbols
 - [x] (Mar 15 17) add classes and spans/divs to control styling (e.g. spans for titles, dates if will add them)
 - [x] (Mar 13 17) Make responsive height/width-wise so can be plugged in to any layout (e.g. Bootstrap)
 	- responsive width-wise most important for scaling
