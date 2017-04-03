@@ -10,8 +10,6 @@
 - [x] done from todo list
 
 ## Todo
-
-- [] nav functionality - left/right arrows flip through slides
 - [] nav functionality - dots can be clicked and brought to the right slide
 - [] nav functionality - select by title on right side
 - [] display - control length of titles and excerpts (ellipsis '...' after max # of characters)
@@ -27,6 +25,7 @@
 - [] wordpress-ify - jQuery $() workaround
 
 ## Done
+- [x] (Mar 30 17) nav functionality - left/right arrows flip through slides
 - [x] (Mar 28 17) slide functionality - split slide() up into prev() and forward()
 - [x] (Mar 21 17) sliding functionality - highlight current title on right side corresponding to current slide
 - [x] (Mar 20 17) populate titles based on slides

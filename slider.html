@@ -434,21 +434,14 @@ $( document ).ready( function() {
 	 * RIGHT ARROW CLICK event - go forward a slide
 	 */
 	$( '.arrow-right' ).click(function(){
-		console.log("current: " + currentSlide);
-
 		// stop the sliding action
 		clearInterval(slideAction);
 		
-		// increment the global (checking if it's already slide max to wrap)
-		if ( currentSlide >= NUM_SLIDES - 1 ) {
-			currentSlide = 0;
-		} else {
-			currentSlide++;
-		}
-		console.log("next: " + currentSlide);
+		// go forward 1
+		slideForward();
 
-		slide(); // show the desired slide with the newly decremented currentSlide
-		//slideAction = setInterval(slide,3000);
+		// restart sliding action
+		slideAction = setInterval(slideForward,3000);
 	});
 	
 	/** 
@@ -464,6 +457,13 @@ $( document ).ready( function() {
 		}
 	});
 
+	/**
+	 * Manipulate the dots
+	 */
+
+	function manipulateDots(index) {
+		
+	}
 	/**
 	 * go ahead, do your thing!
 	 */
