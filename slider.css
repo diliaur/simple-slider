@@ -1,0 +1,140 @@
+div {
+	box-sizing: border-box;
+}
+.container { /* bootstrap mod to match theme conditions */
+	max-width: 1140px;
+}
+.container-slider {
+	width: 100%;
+	//max-height: 300px; /* this seems to do the trick for resizing */
+	background-color: #eee;
+	overflow: hidden;
+}
+.container-slides {
+	width: 75%;
+	float: left;
+	overflow: hidden;
+	position: relative; /* needed for abs posititioning of children */
+}
+.container-slides img {
+	width: 100%;
+	height: auto;
+}
+.clearfix-dt { /* might not be necessary since don't need bgcolor*/
+	clear:both;
+}
+.arrow-left, .arrow-right, .dots {
+	float: left;
+	text-align: center;
+}
+.arrow-left {
+	width:10%;
+}
+.arrow-left:hover, .arrow-right:hover {
+	background-color: #000;
+	color: #fff;
+}
+.arrow-right {
+	width:10%;
+}
+.dots {
+	width:80%;
+	background-color: #ccc;
+}
+.dots ul {
+	list-style-type: none;
+	padding: 0; margin: 0;
+}
+.dots ul li {
+	display: inline;
+}
+/*.categories {
+	position: absolute;
+	top: 0; left: 0;
+	z-index: 90;
+}*/
+.category {
+	padding: 3px;
+	background-color: #ec4838;
+	color: #fff;
+	text-transform: uppercase;
+}
+.excerpt {
+	background-color: #000;
+	color: #fff;
+}
+.slide-nav {
+}
+.container-titles {
+	width: 25%;
+	float: left;
+	background-color: #fff;
+	/* height needs to be contingent upon .container-slides height */
+}
+.on-slide-title {
+	display:none;
+}
+.title-and-date {
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 5px;
+	border-bottom: 1px solid #eee;
+	overflow: hidden; /* just in case title is too long */
+}
+.title-and-date span {
+	display: block;
+}
+.title-and-date .title {
+	font-size: 14px;
+	word-wrap: break-word!important;
+}
+.date {
+	font-size: 10px;
+	text-transform: uppercase;
+}
+/**
+ * Highlighted title tab styling
+ */
+.current {
+	background-color: #ccc;
+	color: #000;
+}
+.prev {
+	background-color: green;
+}
+/**
+ * Styling & collapsing the image list
+ * NOTE: This is no longer applicable since restructuring of the dom elements 03/20 @ 10:45a; Need to convert to new ul style
+ */
+.image-list {
+	/* its height will be that of the image */
+	height: 300px;
+}
+.image-list ul {
+	list-style-type: none;
+	margin: 0; padding: 0;
+	position: relative;
+}
+.image-list li {
+	position: absolute;
+	top: 0; left: 0;
+}
+/* ----------------- */
+
+/*
+ * SLIDE LIST
+ */
+.slide-list {
+	list-style: none;
+	padding: 0; margin: 0;
+	position: relative;
+}
+.slide-list li .categories {
+	position: absolute;
+	top: 0; left: 0;
+	z-index: 90;
+}
+.slide-list li img {
+	float: left; /* in order for image to go under categories */
+	z-index: 89;
+}
