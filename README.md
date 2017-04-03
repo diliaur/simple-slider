@@ -61,6 +61,9 @@ seems to make a weird skipping effect when changing slides,e.g. from the first t
 ### Controls
 
 Left arrow (for previous) - &#9668; ```&#9668;```
+
 Right arrow (for next) - &#9658; ```&#9658;```
+
 Open square (navigation dot, unhighlighted) - &#9633; ```&#9633;```
+
 Closed square (navigation dot, highlighted) - &#9632; ```&#9632;```
