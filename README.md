@@ -10,6 +10,7 @@
 - [x] done from todo list
 
 ## Todo
+- [] display - title div slightly shorter than slide div
 - [] nav functionality - dots can be clicked and brought to the right slide
 - [] nav functionality - select by title on right side
 - [] display - control length of titles and excerpts (ellipsis '...' after max # of characters)

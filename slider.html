@@ -52,6 +52,14 @@
 	}
 	.dots {
 		width:80%;
+		background-color: #ccc;
+	}
+	.dots ul {
+		list-style-type: none;
+		padding: 0; margin: 0;
+	}
+	.dots ul li {
+		display: inline;
 	}
 	/*.categories {
 		position: absolute;
@@ -289,9 +297,25 @@ $( document ).ready( function() {
 	 * Print # of dots based on # of slides
 	 */
 	function generateDots() {
+		$( '.dots' ).append( "<ul>" );
 		for (var count = 0; count < NUM_SLIDES; count++) {
-			$( '.dots' ).append( "&#9675;" ); // UNICODE "White Circle" U+25CB
+			$( '.dots ul' ).append( "<li>&#9675;</>" ); // UNICODE "White Circle" U+25CB
 		}
+	}
+
+	/**
+	 * Manipulate the dots
+	 * Used by any function which moves the slides
+	 * Should not need to manipulate currentSlide global. Purely reactionary.
+	 */
+	function manipulateDots(index) {
+		// get dots
+		//var dots = $( '.dots' ).text();
+
+		//console.log(dots.eq(0));
+		// turn previously filled dot to empty dot
+
+		// use global to turn empty dot into filled dot
 	}
 
 	/**
@@ -425,24 +449,14 @@ $( document ).ready( function() {
 	});
 
 	/**
-	 * Manipulate the dots
-	 * Used by any function which moves the slides
-	 * Should not need to manipulate currentSlide global. Purely reactionary.
-	 */
-	function manipulateDots(index) {
-		// get dots
-		// turn previously filled dot to empty dot
-		// use global to turn empty dot into filled dot
-	}
-
-	/**
 	 * go ahead, do your thing!
 	 */
 	//setHeights();
+	generateDots();
 	populateTitles();
 	setTitleHeights();
-	generateDots();
 	slideSetup();
+	manipulateDots();
 	var slideAction = setInterval(slideForward, 3000); // should declare slideAction further up... necessary? 
 
 	/** 
