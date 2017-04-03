@@ -58,7 +58,7 @@
 
 seems to make a weird skipping effect when changing slides,e.g. from the first to the last when going around, or sometimes in the middle. need to check if this repeats on other machines. may not be an issue, since this method will be used once at a time when arrows are clicked, and not for continuous motion like  slideForward()
 
-### Controls
+### Controls (Unicode)
 
 Left arrow (for previous) - &#9668; ```&#9668;```
 
