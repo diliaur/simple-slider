@@ -236,8 +236,6 @@
 
 <span class="pause">Pause</span>
 
-&#9675;&#9679;&#9632;&#9633;
-
 <script>
 
 $( document ).ready( function() {
@@ -286,13 +284,14 @@ $( document ).ready( function() {
 		// this is to make sure the container doesn't collapse,
 		// nor remain too big
 		//$( '.image-list' ).height(slideHeight);
-
+		/*
 		console.log(slideHeight,navHeight);
 		console.log("slide number: " + NUM_SLIDES);
 		console.log("slide height: " + slideHeight);
 		console.log("slide container height: " + slideContainerHeight);
 		console.log("title height: " + titleHeight);
 		console.log("-------");
+		*/
 	}
 
 	/**
@@ -306,16 +305,16 @@ $( document ).ready( function() {
 	}
 
 	/**
-	 * Manipulate the dots
-	 * Used by any function which moves the slides
+	 * Manipulates the navigation dots; highlights current slide corresponding
+	 * dot and removes previous dot highlight.
+	 * Used by any function which moves the slides in any direction.
 	 * Should not need to manipulate currentSlide global. Purely reactionary.
+	 * @param {current} The current slide, given by calling method
+	 * @param {previous} The previous slide, given by calling method
 	 */
 	function manipulateDots(current,previous) {
 		// get dots
 		var dots = $( '.dots ul li' );
-
-		// make all dots empty - for some reason this prevents first dot from being filled on setup
-		// $( '.dots ul li' ).html("&#9633");
 
 		// use global to turn empty dot into filled dot
 		dots.eq(current).html( "&#9632;" );
@@ -352,7 +351,7 @@ $( document ).ready( function() {
 
 	/**
 	 * Advance slides by 1
-	 * modifies @currentSlide global
+	 * modifies currentSlide global
 	 */
 	function slideForward() {
 		// get all slides
@@ -384,7 +383,7 @@ $( document ).ready( function() {
 
 	/** 
 	 * Retreat slides by 1
-	 * modifies @currentSlide global
+	 * modifies currentSlide global
 	 * note: seems to make a weird skipping effect when changing slides,
 	 *       e.g. from the first to the last when going around, or sometimes
 	 *       in the middle. need to check if this repeats on other machines.
@@ -432,7 +431,8 @@ $( document ).ready( function() {
 
 	/**
 	 * Jump to any slide by given index
-	 * Updates currentSlide..?
+	 * modifies currentSlide global
+	 * @param {newSlide} the slide to which the slider will jump when this method is called
 	 */
 	function slideJumpTo( newSlide ) {
 		// test if current is within bounds
@@ -505,7 +505,8 @@ $( document ).ready( function() {
 
 	/**
 	 * For when a dot is clicked!
-	 * This will manipulate currentSlide because of the call to slideJumpTo().
+	 * This will modify @currentSlide because of the call to slideJumpTo().
+	 *
 	 * Note: Had to use on() instead of click() because dots ul was generated
 	 *       by jQuery; click() only attaches to elements which existed at
 	 *       document ready
