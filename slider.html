@@ -311,15 +311,23 @@ $( document ).ready( function() {
 	 * Used by any function which moves the slides
 	 * Should not need to manipulate currentSlide global. Purely reactionary.
 	 */
-	function manipulateDots(index) {
+	function manipulateDots(current,previous) {
 		// get dots
 		var dots = $( '.dots ul li' );
 
-		// turn previously filled dot to empty dot
-		dots.eq(index).html( "&#9632;" );
-
 		// use global to turn empty dot into filled dot
-		dots.eq(index - 1).html( "&#9633;" );
+		dots.eq(current).html( "&#9632;" );
+
+		// check if previous needs to wrap (if it's bigger than max)
+		//     this is to adjust for when clicking previous arrow/going backward
+		if ( previous > SLIDE_MAX ) {
+			previous = 0;
+		}
+
+		// turn previously filled dot to empty dot
+		dots.eq(previous).html( "&#9633;" );
+
+		console.log("dots: current- " + current + ", prev- " + previous);
 	}
 
 	/**
@@ -369,7 +377,7 @@ $( document ).ready( function() {
 		allSlideTitles.eq(currentSlide).addClass( 'current' );
 
 		// advance dot
-		manipulateDots(currentSlide);
+		manipulateDots(currentSlide,currentSlide-1);
 	}
 
 	/** 
@@ -412,8 +420,12 @@ $( document ).ready( function() {
 		
 		// show current slide title
 		allSlideTitles.eq(currentSlide).addClass( 'current' );
-		//console.log("show title " + currentSlide);
-		//console.log("---");
+	
+		console.log("slide back: " + currentSlide);
+		// change dot
+		manipulateDots(currentSlide,currentSlide+1);
+
+		console.log("---");
 	}
 
 	/**
@@ -455,6 +467,20 @@ $( document ).ready( function() {
 			slideAction = setInterval(slideForward,3000);
 			$('.pause').text("Pause");
 		}
+	});
+
+	/**
+	 * For when a dot is clicked!
+	 * This will manipulate currentSlide.
+	 */
+	$( 'dots ul li').click( function() { //maybe eventually put callback into actual function..?
+		// stall sliding action
+
+		// check what # of dot was clicked
+
+		// assign current global to dot #
+
+		// restart sliding action - should take care of the dot change too
 	});
 
 	/**
