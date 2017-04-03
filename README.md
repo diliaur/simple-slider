@@ -35,7 +35,7 @@
 - [] wordpress-ify - link titles to post
 
 ## Done
-- [+] (Apr 3 17) added dots generation as <ul> and also dot highlight in accordance with slide movement
+- [+] (Apr 3 17) added dots generation as ul and also dot highlight in accordance with slide movement
 - [x] (Mar 30 17) nav functionality - left/right arrows flip through slides
 - [x] (Mar 28 17) slide functionality - split slide() up into prev() and forward()
 - [x] (Mar 21 17) sliding functionality - highlight current title on right side corresponding to current slide
