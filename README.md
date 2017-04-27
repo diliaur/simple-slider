@@ -20,6 +20,7 @@
 - [] display - decide breakpoint: when to break title container off and display it underneath the slider image (otherwise titles stay longer than image and look bad)
 - ~~~[] complete a mockup that looks like finished product, to make sure styles are set~~~
 - [] prevent i-bar from coming up when hovering over controls (icing)
+- [] how to fail gracefully when no slides are available? -> default slide? etc.
 
 ### Code refactoring & Testing
 - [] test compatibility with different browsers + versions
@@ -33,6 +34,7 @@
 - [] wordpress-ify - display categories
 - [] wordpress-ify - jQuery $() workaround
 - [] wordpress-ify - link titles to post
+- [] wordpress-ify - import JS & CSS correctly
 
 ## Done
 - [+] (Apr 27 17) wordpressify - html -> php file

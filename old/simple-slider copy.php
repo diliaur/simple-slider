@@ -1,15 +1,3 @@
-<?php
-   /*
-   Plugin Name: Awesomeness Creator
-   Plugin URI: http://my-awesomeness-emporium.com
-   Description: a plugin to create awesomeness and spread joy
-   Version: 1.2
-   Author: Mr. Awesome
-   Author URI: http://mrtotallyawesome.com
-   License: GPL2
-   */
-?>
-
 <html>
 <head>
 	<title></title>
@@ -37,15 +25,6 @@
 		<div class="col-md-12">
 			<div class="container-slider">
 				<div class="container-slides">
-					<?php 
-						$args = array('category_name'=>'Featured'));
-						$featured_posts = get_posts($args);
-
-						foreach ($featured_posts as $post):
-							echo get_the_post_thumbnail();
-						endforeach;
-					?>
-
 					<ul class="slide-list">
 						<li>
 							<div class="title-and-date">
@@ -60,6 +39,34 @@
 							<img class="current-slide-img" src="img/931.png">
 							<div class="excerpt">
 								excerpt the first
+							</div>
+						</li>
+						<li>
+							<div class="title-and-date">
+								<span class="title">Title 2</span>
+								<span class="date">March 21, 2017</span>
+							</div>
+							<div class="categories">
+								<span class="category">category one</span>
+								<span class="category">and etc</span>
+							</div>
+							<img class="current-slide-img" src="img/932.png">
+							<div class="excerpt">
+								excerpt the second
+							</div>
+						</li>
+						<li>
+							<div class="title-and-date">
+								<span class="title">Title 3</span>
+								<span class="date">March 22, 2017</span>
+							</div>
+							<div class="categories">
+								<span class="category">and etc</span>
+								<span class="category">another one</span>
+							</div>
+							<img class="current-slide-img" src="img/933.png">
+							<div class="excerpt">
+								excerpt the third
 							</div>
 						</li>
 					</ul>
