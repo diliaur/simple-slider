@@ -35,6 +35,7 @@
 - [] wordpress-ify - link titles to post
 
 ## Done
+- [+] (Apr 27 17) wordpressify - html -> php file
 - [x] (Apr 3 17) refactor - separate JS, CSS, and HTML into separate files
 - [x] (Apr 3 17) nav functionality - dots can be clicked and brought to the right slide
 - [+] (Apr 3 17) added dots generation as ul and also dot highlight in accordance with slide movement
