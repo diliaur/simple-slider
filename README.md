@@ -32,11 +32,11 @@
 ### Wordpressify
 - [] wordpress-ify - auto-populate slides, titles, excerpts, etc.
 - [] wordpress-ify - display categories
-- [] wordpress-ify - jQuery $() workaround
 - [] wordpress-ify - link titles to post
-- [] wordpress-ify - import JS & CSS correctly
 
 ## Done
+- [x] (Apr 28 17) wordpress-ify - jQuery $() workaround
+- [x] (Apr 28 17) wordpress-ify - import JS & CSS correctly
 - [+] (Apr 27 17) wordpressify - html -> php file
 - [x] (Apr 3 17) refactor - separate JS, CSS, and HTML into separate files
 - [x] (Apr 3 17) nav functionality - dots can be clicked and brought to the right slide
