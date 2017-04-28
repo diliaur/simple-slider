@@ -14,16 +14,16 @@
 	 * Enqueue scripts and styles
 	 *
 	 */
-	function simple_slider_enequeue_scripts_styles() {
-		wp_enqueue_script(); // jquery
-		wp_enqueue_script(); // slider.js
-		wp_enqueue_style( 'slider', plugin_dir_path(__FILE__) . 'slider.css' );
+	function simple_slider_enqueue_scripts_styles() {
+		//wp_enqueue_script(); // jquery
+		wp_enqueue_script( 'cseas-simple-slider', plugins_url( 'slider.js', __FILE__ ), array( 'jquery' ) ); // slider.js
+		wp_enqueue_style( 'slider', plugins_url( 'slider.css', __FILE__ ) );
 	}
+	add_action( 'wp_enqueue_scripts', 'simple_slider_enqueue_scripts_styles' );
 
 	/**
 	 *
-	 * Display something. This is a test to check enqueueing and how to add stuff
-	 * to a page T__T
+	 * Display something.
 	 *
 	 */
 	function simple_slider_shortcode() {
