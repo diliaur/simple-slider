@@ -1,13 +1,34 @@
 <?php
-   /*
-   Plugin Name: Awesomeness Creator
-   Plugin URI: http://my-awesomeness-emporium.com
-   Description: a plugin to create awesomeness and spread joy
-   Version: 1.2
-   Author: Mr. Awesome
-   Author URI: http://mrtotallyawesome.com
-   License: GPL2
-   */
+	/*
+	Plugin Name: Awesomeness Creator
+	Plugin URI: http://my-awesomeness-emporium.com
+	Description: a plugin to create awesomeness and spread joy
+	Version: 1.2
+	Author: Mr. Awesome
+	Author URI: http://mrtotallyawesome.com
+	License: GPL2
+	*/
+
+	/**
+	 *
+	 * Enqueue scripts and styles
+	 *
+	 */
+	function simple_slider_enequeue_scripts_styles() {
+		wp_enqueue_script();
+		wp_enqueue_style( 'slider', plugin_dir_path(__FILE__) . 'slider.css' );
+	}
+
+	/**
+	 *
+	 * Display something. This is a test to check enqueueing and how to add stuff
+	 * to a page T__T
+	 *
+	 */
+	function simple_slider_shortcode() {
+		return "simple slider";
+	}
+	add_shortcode( 'simple-slider-shortcode', 'simple_slider_shortcode' );
 ?>
 
 <html>
