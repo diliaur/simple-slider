@@ -28,18 +28,48 @@
 	 */
 	function simple_slider_shortcode() {
 
-		$result = '';
+		$result = "
+			<div class='container'>
+				<div class='row'>
+					<div class='col-md-12'>
+						<div class='container-slider'>
+							<div class='container-slides'>
+								<ul class='slide-list'>";
 
 		$args = array( 'category_name' => 'Featured' );
 		$featured_posts = get_posts($args);
 
-		wp_reset_query(); // to reset the query before calling a new loop
-		foreach ( $featured_posts as $post ) : setup_postdata( $post );// it HAS to be as $post, for some reason other vars won't work, probably something to do with the LOOP
-			$result .= '<div>' . get_the_post_thumbnail() . '</div>';
-			$result .= '<div>' . the_title() . '</div>';
-			$result .= '<div>' . the_excerpt() . '</div>';
+		foreach ($featured_posts as $post) :
+			$result .= '<li>' . the_title() . '</li>';
 		endforeach;
+		
+	$result .= "</ul>
+								<div class='slide-nav'>
+									<div class='arrow-left'>
+										&#9668;
+									</div>
+									<div class='dots'>
+									</div>
+									<div class='arrow-right'>
+										&#9658;
+									</div>
+									<div class='clearfix-dt'></div>
+								</div>
+							</div>
+							<div class='container-titles'>
+								<!--
+								<div class='slide-title'>
+									<span class='title-inner'>This title tests how long titles can get. How many chars: 60</span>
+									<span class='date'>March 15, 2017</span>
+								</div>
+								-->
 
+							</div>
+							<div class='clearfix-dt'></div>
+						</div>
+					</div>
+				</div>
+			</div>";
 
 		return $result;
 	}
