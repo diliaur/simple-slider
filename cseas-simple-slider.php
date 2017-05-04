@@ -30,10 +30,13 @@
 
 		$result = '';
 
+		wp_reset_query(); // to reset the query before calling a new loop
+		global $post; // need this? apparently? https://digwp.com/2011/05/loops/
+
 		$args = array( 'category_name' => 'Featured' );
+
 		$featured_posts = get_posts($args);
 
-		wp_reset_query(); // to reset the query before calling a new loop
 		foreach ( $featured_posts as $post ) : setup_postdata( $post );// it HAS to be as $post, for some reason other vars won't work, probably something to do with the LOOP
 			$result .= '<div>' . get_the_post_thumbnail() . '</div>';
 			$result .= '<div>' . the_title() . '</div>';
