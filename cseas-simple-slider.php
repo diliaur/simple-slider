@@ -37,13 +37,19 @@
 
 		$featured_posts = get_posts($args);
 
+		$result .= "<ul>";
+
 		foreach ( $featured_posts as $post ) : setup_postdata( $post );// it HAS to be as $post, for some reason other vars won't work, probably something to do with the LOOP
-			$result .= '<div>' . get_the_post_thumbnail() . '</div>';
-			$result .= '<div>' . the_title() . '</div>';
-			$result .= '<div>' . the_excerpt() . '</div>';
+			//$result .= "<li>";
+				$result .= '<li>' . get_the_post_thumbnail() . '</li>';
+				$result .= '<li>' . the_title() . '</li>';
+				$result .= '<li>' . the_excerpt() . '</li>';
+			//$result .= "</li>";
 		endforeach;
 
+		$result .= "</ul>";
 
+		wp_reset_query(); // should I have this here to clean up or does it ruin more than it helps?
 		return $result;
 	}
 	add_shortcode( 'simple-slider-shortcode', 'simple_slider_shortcode' );
