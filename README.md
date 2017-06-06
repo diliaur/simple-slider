@@ -30,11 +30,11 @@
 - [] make allSlides list a global since it's used in multiple places (may not matter)
 
 ### Wordpressify
-- [] wordpress-ify - auto-populate slides, titles, excerpts, etc.
 - [] wordpress-ify - display categories
 - [] wordpress-ify - link titles to post
 
 ## Done
+- [x] (Jun 5 17) wordpress-ify - auto-populate slides, titles, excerpts, etc.
 - [x] (Apr 28 17) wordpress-ify - jQuery $() workaround
 - [x] (Apr 28 17) wordpress-ify - import JS & CSS correctly
 - [+] (Apr 27 17) wordpressify - html -> php file
@@ -54,6 +54,10 @@
 	- responsive width-wise most important for scaling
 
 ## Notes
+
+### issue: jQuery broken when wordpressified
+
+(Jun 5 17) Once got posts to populate, jQuery worked to cycle through but adding dots, alignment of divs, some other things broke. Currently will strip features and see about restoring basic sliding functionality, then build on top of that to return features.
 
 ### jQuery selectors
 
