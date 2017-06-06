@@ -36,6 +36,8 @@ jQuery( document ).ready( function( $ ) {
 		// calculate title height - (slide height) / (# of titles/# of slides)
 		var titleHeight = (slideContainerHeight - borderHeight) / NUM_SLIDES;
 
+		console.log(titleHeight);
+
 		// assign height to title element class
 		// use innerheight because it takes padding into consideration
 		$( '.title-and-date' ).innerHeight(titleHeight);
@@ -306,11 +308,11 @@ jQuery( document ).ready( function( $ ) {
 	 * Setup & initiate the sliding action
 	 *
 	 */
-	generateDots();
+	//generateDots();
 	populateTitles();
 	setTitleHeights();
 	slideSetup();
-	manipulateDots();
+	//manipulateDots();
 	var slideAction = setInterval(slideForward, 3000);
 
 	/** 
