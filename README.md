@@ -59,6 +59,8 @@
 
 (Jun 5 17) Once got posts to populate, jQuery worked to cycle through but adding dots, alignment of divs, some other things broke. Currently will strip features and see about restoring basic sliding functionality, then build on top of that to return features.
 
+Addendum 1: Fixed HTML structure which restored some JS functionality. Dots still being weird. Alignment still off. Possibly issue with insufficient post content-> strangely sized, sometimes missing, images, etc.
+
 ### jQuery selectors
 
 (Apr 3 17) In its current iteration, the nature of the CSS classes and the way they're selected by jQuery means that only one of these sliders should be used on a page at a single time. This is OK for my purposes, but in the future should make it multiple-iteration-proof just for robustness, especially if it will be WordPress-ified.
