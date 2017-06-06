@@ -27,7 +27,7 @@
 	 *
 	 */
 	function simple_slider_shortcode() {
-
+		/*
 		$result = '';
 
 		wp_reset_query(); // to reset the query before calling a new loop
@@ -40,17 +40,38 @@
 		$result .= "<ul>";
 
 		foreach ( $featured_posts as $post ) : setup_postdata( $post );// it HAS to be as $post, for some reason other vars won't work, probably something to do with the LOOP
-			//$result .= "<li>";
-				$result .= '<li>' . get_the_post_thumbnail() . '</li>';
-				$result .= '<li>' . the_title() . '</li>';
-				$result .= '<li>' . the_excerpt() . '</li>';
-			//$result .= "</li>";
+			
+			$result .= "<li>" . the_title() . "</li>";
+			
 		endforeach;
 
 		$result .= "</ul>";
 
 		wp_reset_query(); // should I have this here to clean up or does it ruin more than it helps?
+		print_r($result);
 		return $result;
+		*/
+		?>
+		<ul>
+
+			<?php 
+			$my_query = new WP_Query( 'category_name=Featured&posts_per_page=5' );
+			while ( $my_query->have_posts() ) : $my_query->the_post();
+			$do_not_duplicate = $post->ID; ?>
+				<li>
+					<div class="title-and-date">
+						<span class="title"><?php the_title(); ?></span>
+						<span class="date"><?php the_date(); ?></span>
+					</div>
+					<div class="categories"><?php the_category(); ?></div>
+					<?php the_post_thumbnail(); ?>
+					<div class="excerpt"><?php the_excerpt(); ?></div>
+				</li>
+			<?php endwhile; ?>
+		
+		</ul>
+		
+		<?php
 	}
 	add_shortcode( 'simple-slider-shortcode', 'simple_slider_shortcode' );
 ?>
