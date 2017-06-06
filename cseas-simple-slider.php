@@ -32,7 +32,7 @@
 		<ul class="slide-list">
 
 			<?php 
-			$my_query = new WP_Query( 'category_name=Featured&posts_per_page=5' );
+			$my_query = new WP_Query( 'category_name=Featured&posts_per_page=3' );
 			while ( $my_query->have_posts() ) : $my_query->the_post();
 			$do_not_duplicate = $post->ID; ?>
 				<li>

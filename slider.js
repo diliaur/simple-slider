@@ -6,10 +6,17 @@ jQuery( document ).ready( function( $ ) {
 	 *																		   *
 	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-	var NUM_SLIDES = $( '.slide-list li' ).length;
+	var NUM_SLIDES = $( '.slide-list > li' ).length;
 	var SLIDE_MAX = NUM_SLIDES - 1;
-	var allSlideTitles = $( '.slide-list li .title-and-date' ); // keeping this out here so others can use it
+	console.log ("SLIDE_MAX -> " + SLIDE_MAX);
+	var allSlideTitles = $( '.slide-list > li .title-and-date' ); // keeping this out here so others can use it
 	var currentSlide = 0; // begins at 0
+
+	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+	 *																		   *
+	 *                               THE CODE                                  *
+	 *																		   *
+	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 	/**
 	 * Based on the slides, populate the title container div with titles
@@ -24,8 +31,8 @@ jQuery( document ).ready( function( $ ) {
 	 */
 	function setTitleHeights() {
 		
-		var slideHeight = $( '.slide-list li' ).height(); // get slide height
-		//var exerptHeight = $( '.slide-list li .excerpt' ).height();
+		var slideHeight = $( '.slide-list > li' ).height(); // get slide height
+		//var exerptHeight = $( '.slide-list > li .excerpt' ).height();
 		var navHeight = $( '.slide-nav' ).height();
 
 		//var slideContainerHeight = $( '.container-slides' ).height();
@@ -102,7 +109,7 @@ jQuery( document ).ready( function( $ ) {
 		// SETUP - initial page load
 		// hide all slides but the first one
 		// ---------------------------------
-		var allSlides = $( '.slide-list li' ); // get all slides in easy array format
+		var allSlides = $( '.slide-list > li' ); // get all slides in easy array format
 
 		allSlides.hide(); // hide all slides
 
@@ -120,7 +127,7 @@ jQuery( document ).ready( function( $ ) {
 	 */
 	function slideForward() {
 		// get all slides
-		var allSlides = $( '.slide-list li' );
+		var allSlides = $( '.slide-list > li' );
 
 		// add 1 to currentSlide global
 		//     make sure it is not max, or wrap around to 0
@@ -159,7 +166,7 @@ jQuery( document ).ready( function( $ ) {
 	function slideBackward() {
 		//console.log("----")
 		// get all slides
-		var allSlides = $( '.slide-list li' );
+		var allSlides = $( '.slide-list > li' );
 
 		// subtract 1 from currentSlide global
 		//     make sure it is not 0, or wrap around to max
@@ -204,7 +211,7 @@ jQuery( document ).ready( function( $ ) {
 		// test if current is within bounds
 		if ( newSlide >= 0 && newSlide <= SLIDE_MAX) {
 
-			var allSlides = $( '.slide-list li' );
+			var allSlides = $( '.slide-list > li' );
 
 			// hide all slides
 			allSlides.hide();
@@ -308,11 +315,11 @@ jQuery( document ).ready( function( $ ) {
 	 * Setup & initiate the sliding action
 	 *
 	 */
-	//generateDots();
+	generateDots();
 	populateTitles();
 	setTitleHeights();
 	slideSetup();
-	//manipulateDots();
+	manipulateDots();
 	var slideAction = setInterval(slideForward, 3000);
 
 	/** 

@@ -63,6 +63,10 @@ Addendum 1: Fixed HTML structure which restored some JS functionality. Dots stil
 
 Addendum 2: Cycling is still weird, titles not linking to correct images, some counter is off somewhere.
 
+Addendum 3: Seems like there is an issue with WP thumbnails in the wordpress install itself, or some configuration of plugins or the theme which is upsetting this.
+
+Solution: Counter discrepancy was caused by selecting ALL li children of ul.slide-list by '.slide-list li'. Changed to immediate descendant selection, '.slide-list > li' and this rectified the issue.
+
 ### jQuery selectors
 
 (Apr 3 17) In its current iteration, the nature of the CSS classes and the way they're selected by jQuery means that only one of these sliders should be used on a page at a single time. This is OK for my purposes, but in the future should make it multiple-iteration-proof just for robustness, especially if it will be WordPress-ified.
