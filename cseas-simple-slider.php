@@ -15,44 +15,19 @@
 	 *
 	 */
 	function simple_slider_enqueue_scripts_styles() {
-		//wp_enqueue_script(); // jquery
-		//wp_enqueue_script( 'cseas-simple-slider', plugins_url( 'slider.js', __FILE__ ), array( 'jquery' ) ); // slider.js
-		//wp_enqueue_style( 'slider', plugins_url( 'slider.css', __FILE__ ) );
+		wp_enqueue_script( 'cseas-simple-slider-js', plugins_url( 'slider.js', __FILE__ ), array( 'jquery' ) ); // slider.js
+		wp_enqueue_style( 'cseas-simple-slider-css', plugins_url( 'slider.css', __FILE__ ) );
 	}
-	//add_action( 'wp_enqueue_scripts', 'simple_slider_enqueue_scripts_styles' );
+	add_action( 'wp_enqueue_scripts', 'simple_slider_enqueue_scripts_styles' );
 
 	/**
 	 *
-	 * Display something.
+	 * Display the slider.
 	 *
 	 */
 	function simple_slider_shortcode() {
-		/*
-		$result = '';
-
-		wp_reset_query(); // to reset the query before calling a new loop
-		global $post; // need this? apparently? https://digwp.com/2011/05/loops/
-
-		$args = array( 'category_name' => 'Featured' );
-
-		$featured_posts = get_posts($args);
-
-		$result .= "<ul>";
-
-		foreach ( $featured_posts as $post ) : setup_postdata( $post );// it HAS to be as $post, for some reason other vars won't work, probably something to do with the LOOP
-			
-			$result .= "<li>" . the_title() . "</li>";
-			
-		endforeach;
-
-		$result .= "</ul>";
-
-		wp_reset_query(); // should I have this here to clean up or does it ruin more than it helps?
-		print_r($result);
-		return $result;
-		*/
 		?>
-		<ul>
+		<ul class="slide-list">
 
 			<?php 
 			$my_query = new WP_Query( 'category_name=Featured&posts_per_page=5' );
@@ -64,7 +39,7 @@
 						<span class="date"><?php the_date(); ?></span>
 					</div>
 					<div class="categories"><?php the_category(); ?></div>
-					<?php the_post_thumbnail(); ?>
+					<?php the_post_thumbnail(null, array( 'class' => 'current-slide-img' )); ?>
 					<div class="excerpt"><?php the_excerpt(); ?></div>
 				</li>
 			<?php endwhile; ?>
@@ -72,6 +47,7 @@
 		</ul>
 		
 		<?php
+
 	}
 	add_shortcode( 'simple-slider-shortcode', 'simple_slider_shortcode' );
 ?>
