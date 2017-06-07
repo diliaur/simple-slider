@@ -30,7 +30,6 @@
 		<div class="container-slider">
 		<div class="container-slides">
 		<ul class="slide-list">
-
 			<?php 
 			$my_query = new WP_Query( 'category_name=Featured&posts_per_page=3' );
 			while ( $my_query->have_posts() ) : $my_query->the_post();
@@ -45,7 +44,6 @@
 					<div class="excerpt"><?php the_excerpt(); ?></div>
 				</li>
 			<?php endwhile; ?>
-		
 		</ul>
 		<div class="slide-nav">
 			<div class="arrow-left">&#9668;</div>

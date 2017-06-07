@@ -12,6 +12,7 @@
 ## Todo
 
 ### Display
+- [] display - style categories
 - [] display - title div is slightly shorter than slide div
 - ~~~[] nav functionality - select by title on right side~~~
 - [] display - control length of titles and excerpts (ellipsis '...' after max # of characters)
@@ -30,10 +31,10 @@
 - [] make allSlides list a global since it's used in multiple places (may not matter)
 
 ### Wordpressify
-- [] wordpress-ify - display categories
 - [] wordpress-ify - link titles to post
 
 ## Done
+- [x] (Jun 5 17) wordpress-ify - display categories
 - [x] (Jun 5 17) wordpress-ify - auto-populate slides, titles, excerpts, etc.
 - [x] (Apr 28 17) wordpress-ify - jQuery $() workaround
 - [x] (Apr 28 17) wordpress-ify - import JS & CSS correctly
