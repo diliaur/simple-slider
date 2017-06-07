@@ -48,9 +48,9 @@
 			<?php endwhile; ?>
 		</ul>
 		<div class="slide-nav">
-			<div class="arrow-left">&#9668;</div>
+			<div class="arrow-left"><</div>
 			<div class="dots"></div>
-			<div class="arrow-right">&#9658;</div>
+			<div class="arrow-right">></div>
 			<div class="clearfix-dt"></div>
 		</div>
 		</div>

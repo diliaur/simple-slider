@@ -56,6 +56,10 @@
 
 ## Notes
 
+### Issue: UNICODE arrows displaying as different sizes
+
+(Jun 6 17) For some reason, &#9668; displays as smaller than &#9658;, even when font-size property was set. Ditched the symbols for <> brackets for now (or permanently).
+
 ### Issue [Resolved]: jQuery broken when wordpressified
 
 (Jun 5 17) Once got posts to populate, jQuery worked to cycle through but adding dots, alignment of divs, some other things broke. Currently will strip features and see about restoring basic sliding functionality, then build on top of that to return features.

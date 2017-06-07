@@ -48,6 +48,11 @@ div {
 .dots ul li {
 	display: inline;
 }
+.arrow-left, .arrow-right, .dots {
+	font-size: 15px;
+	color: #000;
+	background-color: #ccc;
+}
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *			                                                                 *
  * CATEGORIES                                                                *
