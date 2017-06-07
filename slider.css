@@ -48,17 +48,30 @@ div {
 .dots ul li {
 	display: inline;
 }
-/*.categories {
-	position: absolute;
-	top: 0; left: 0;
-	z-index: 90;
-}*/
-.category {
-	padding: 3px;
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *			                                                                 *
+ * CATEGORIES                                                                *
+ *                                                                           *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.categories ul.post-categories {
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+}
+.categories ul.post-categories li {
+	float: left;
+	list-style: none;
+	margin: 5px;
+	padding: 1px 5px;
 	background-color: #ec4838;
-	color: #fff;
 	text-transform: uppercase;
 }
+.categories a:link, .categories a:visited, .categories a:hover, .categories a:active {
+	color: #fff!important; /* force the white on hover just here. hover is #ccc & being controlled in SOME stylestylesheet somewhere */
+}
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 .excerpt {
 	background-color: #000;
 	color: #fff;
