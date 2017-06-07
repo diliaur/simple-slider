@@ -55,7 +55,7 @@
 
 ## Notes
 
-### issue: jQuery broken when wordpressified
+### Issue [Resolved]: jQuery broken when wordpressified
 
 (Jun 5 17) Once got posts to populate, jQuery worked to cycle through but adding dots, alignment of divs, some other things broke. Currently will strip features and see about restoring basic sliding functionality, then build on top of that to return features.
 
