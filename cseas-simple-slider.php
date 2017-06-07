@@ -36,11 +36,13 @@
 			$do_not_duplicate = $post->ID; ?>
 				<li>
 					<div class="title-and-date">
-						<span class="title"><?php the_title(); ?></span>
+						<span class="title"><a href=<?php the_permalink(); ?>><?php the_title(); ?></a></span>
 						<span class="date"><?php the_date(); ?></span>
 					</div>
 					<div class="categories"><?php the_category(); ?></div>
-					<?php the_post_thumbnail(null, array( 'class' => 'current-slide-img' )); ?>
+					<a href=<?php the_permalink(); ?>>
+						<?php the_post_thumbnail(null, array( 'class' => 'current-slide-img' )); ?>
+					</a>
 					<div class="excerpt"><?php the_excerpt(); ?></div>
 				</li>
 			<?php endwhile; ?>

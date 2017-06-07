@@ -31,9 +31,9 @@
 - [] make allSlides list a global since it's used in multiple places (may not matter)
 
 ### Wordpressify
-- [] wordpress-ify - link titles to post
 
 ## Done
+- [x] (Jun 6 17) wordpress-ify - link titles to post
 - [x] (Jun 5 17) wordpress-ify - display categories
 - [x] (Jun 5 17) wordpress-ify - auto-populate slides, titles, excerpts, etc.
 - [x] (Apr 28 17) wordpress-ify - jQuery $() workaround
