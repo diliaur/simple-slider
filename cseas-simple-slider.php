@@ -37,7 +37,7 @@
 				<li>
 					<div class="title-and-date">
 						<span class="title"><a href=<?php the_permalink(); ?>><?php the_title(); ?></a></span>
-						<span class="date"><?php the_date(); ?></span>
+						<span class="date"><?php echo get_the_date(); ?></span>
 					</div>
 					<div class="categories"><?php the_category(); ?></div>
 					<a href=<?php the_permalink(); ?>>
