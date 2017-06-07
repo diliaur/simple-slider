@@ -75,6 +75,10 @@ div {
 .excerpt {
 	background-color: #000;
 	color: #fff;
+	padding: 5px;
+}
+.excerpt p {
+	padding: 0; margin: 0; /* wordpress adds a <p> tag we need to compensate for */
 }
 .slide-nav {
 }
