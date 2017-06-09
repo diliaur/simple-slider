@@ -49,18 +49,20 @@ jQuery( document ).ready( function( $ ) {
 		// use innerheight because it takes padding into consideration
 		$( '.title-and-date' ).innerHeight(titleHeight);
 
-		// assign slide height to slide ul container
-		// this is to make sure the container doesn't collapse,
-		// nor remain too big
-		//$( '.image-list' ).height(slideHeight);
 		/*
-		console.log(slideHeight,navHeight);
-		console.log("slide number: " + NUM_SLIDES);
-		console.log("slide height: " + slideHeight);
-		console.log("slide container height: " + slideContainerHeight);
-		console.log("title height: " + titleHeight);
-		console.log("-------");
-		*/
+		 * Check for width of screen, and place titles underneath
+		 * the slides instead.
+		 */
+
+		var minWindowWidth = 1000;
+
+		if ( $( window ).width() < minWindowWidth ) {
+			$( 'div.container-titles' ).addClass( 'container-titles-no-float' );
+			$( 'div.container-titles' ).removeClass( 'container-titles' );
+		} else {
+			$( 'div.container-titles' ).addClass( 'container-titles' );
+			$( 'div.container-titles' ).removeClass( 'container-titles-no-float' );
+		}
 	}
 
 	/**

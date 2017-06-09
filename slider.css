@@ -93,6 +93,11 @@ div {
 	background-color: #fff;
 	/* height needs to be contingent upon .container-slides height */
 }
+.container-titles-no-float { /* for toggle when window resizes below break-point */
+	width: 100%;
+	float: none;
+	background-color: #fff;
+}
 .on-slide-title {
 	display:none;
 }
