@@ -12,20 +12,17 @@
 ## Todo
 
 ### Display
-- [] display - title div is slightly shorter than slide div
-- ~~~[] nav functionality - select by title on right side~~~
+- [] display - decide breakpoint: when to break title container off and display it underneath the slider image (otherwise titles stay longer than image and look bad)
 - [] display - control length of titles and excerpts (ellipsis '...' after max # of characters)
 - [] display - add test to see when title divs are too small (i.e. when the title and date are getting cut off) and use that to 
 - [] display - calculate size of titles based on # of slides to make sure titles/dates won't be obscured; if the div becomes too small, then use this in the decision breakpoint (see next item)
-- [] display - decide breakpoint: when to break title container off and display it underneath the slider image (otherwise titles stay longer than image and look bad)
-- ~~~[] complete a mockup that looks like finished product, to make sure styles are set~~~
 - [] prevent i-bar from coming up when hovering over controls (icing)
 - [] how to fail gracefully when no slides are available? -> default slide? etc.
 
 ### Code refactoring & Testing
 - [] test compatibility with different browsers + versions
 - [] refactor - make code look neater (organize & comment)
-- [] better way to manipulate currentSlide global
+- [] better way to manipulate currentSlide global ?
 - [] make dots click callback into own function (maybe)
 - [] make allSlides list a global since it's used in multiple places (may not matter)
 
