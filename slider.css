@@ -65,9 +65,9 @@ div {
 	font-size: 12px;
 }
 .categories ul.post-categories li {
-	float: left;
+	display: inline;
 	list-style: none;
-	margin: 5px;
+	margin: 0px;
 	padding: 1px 5px;
 	background-color: #ec4838;
 	text-transform: uppercase;
