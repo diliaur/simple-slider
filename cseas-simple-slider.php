@@ -14,18 +14,18 @@
 	 * Enqueue scripts and styles
 	 *
 	 */
-	function simple_slider_enqueue_scripts_styles() {
+	function cseas_simple_slider_enqueue_scripts_styles() {
 		wp_enqueue_script( 'cseas-simple-slider-js', plugins_url( 'slider.js', __FILE__ ), array( 'jquery' ) ); // slider.js
 		wp_enqueue_style( 'cseas-simple-slider-css', plugins_url( 'slider.css', __FILE__ ) );
 	}
-	add_action( 'wp_enqueue_scripts', 'simple_slider_enqueue_scripts_styles' );
+	add_action( 'wp_enqueue_scripts', 'cseas_simple_slider_enqueue_scripts_styles' );
 
 	/**
 	 *
 	 * Display the slider.
 	 *
 	 */
-	function simple_slider_shortcode() {
+	function cseas_simple_slider_shortcode() {
 		?>
 		<div class="container-slider">
 		<div class="container-slides">
@@ -60,5 +60,5 @@
 		<?php
 
 	}
-	add_shortcode( 'simple-slider-shortcode', 'simple_slider_shortcode' );
+	add_shortcode( 'cseas-simple-slider', 'cseas_simple_slider_shortcode' );
 ?>
