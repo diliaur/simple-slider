@@ -103,8 +103,8 @@ jQuery( document ).ready( function( $ ) {
 	}
 
 	/**
-	 * The actual flipping through action of the slides.
-	 * Manipulates currentSlide global
+	 * Sets up the slides to begin sliding motion -- hides all slides but the
+	 *   first, highlights current title card, and sets up dots.
 	 */
 	function slideSetup() {
 		// ---------------------------------
