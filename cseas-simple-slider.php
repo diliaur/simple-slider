@@ -30,22 +30,28 @@
 		<div class="container-slider">
 		<div class="container-slides">
 		<ul class="slide-list">
-			<?php 
-			$my_query = new WP_Query( 'category_name=Featured&posts_per_page=3' );
+			<?php
+			$my_query = new WP_Query( 'category_name=Featured&posts_per_page=5' );
 			while ( $my_query->have_posts() ) : $my_query->the_post();
-			$do_not_duplicate = $post->ID; ?>
-				<li>
-					<div class="title-and-date">
-						<span class="title"><a href=<?php the_permalink(); ?>><?php the_title(); ?></a></span>
-						<span class="date"><?php echo get_the_date(); ?></span>
-					</div>
-					<div class="categories"><?php the_category(); ?></div>
-					<a href=<?php the_permalink(); ?>>
-						<?php the_post_thumbnail(null, array( 'class' => 'current-slide-img' )); ?>
-					</a>
-					<div class="excerpt"><?php the_excerpt(); ?></div>
-				</li>
-			<?php endwhile; ?>
+			//$do_not_duplicate = $post->ID; idk if this is necessary?
+				if ( has_post_thumbnail() ) { // if in this order, # slides is impacted.
+				?>
+					<li>
+						<div class="title-and-date">
+							<span class="title"><a href=<?php the_permalink(); ?>><?php the_title(); ?></a></span>
+							<span class="date"><?php echo get_the_date(); ?></span>
+						</div>
+						<div class="categories"><?php the_category(); ?></div>
+						<a href=<?php the_permalink(); ?>>
+							<?php the_post_thumbnail(null, array( 'class' => 'current-slide-img' )); ?>
+						</a>
+						<div class="excerpt"><?php the_excerpt(); ?></div>
+					</li>
+				<?php 
+				}
+			endwhile; 
+			wp_reset_postdata(); // since used the_post()
+			?>
 		</ul>
 		<div class="slide-nav">
 			<div class="arrow-left"><</div>
