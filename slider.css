@@ -102,8 +102,7 @@ div {
 	display:none;
 }
 .title-and-date {
-	margin-left: 5px;
-	margin-right: 5px;
+	margin-left: 5px; /* no right margin so it's flush with any layout */
 	padding: 5px;
 	border-bottom: 1px solid #eee;
 	overflow: hidden; /* just in case title is too long */
