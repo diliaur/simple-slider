@@ -31,7 +31,12 @@
 		<div class="container-slides">
 		<ul class="slide-list">
 			<?php
-			$my_query = new WP_Query( 'category_name=Featured&posts_per_page=5' );
+			$args = array(
+				'category_name' => 'Featured',
+				'posts_per_page' => 5,
+				'meta_key' => '_thumbnail_id'
+				);
+			$my_query = new WP_Query( $args );
 			while ( $my_query->have_posts() ) : $my_query->the_post();
 			//$do_not_duplicate = $post->ID; idk if this is necessary?
 				if ( has_post_thumbnail() ) { // if in this order, # slides is impacted.
