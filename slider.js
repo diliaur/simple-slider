@@ -26,8 +26,10 @@ jQuery( document ).ready( function( $ ) {
 	}
 
 	/**
-	 * Setup the heights of the title elements, based on the 
-	 * height of the slide image container
+	 *
+	 * Sets up the heights of the title elements, based on the height of the
+	 *  slide image container
+	 *
 	 */
 	function setTitleHeights() {
 
@@ -59,7 +61,9 @@ jQuery( document ).ready( function( $ ) {
 	}
 
 	/**
-	 * Print # of dots based on # of slides
+	 *
+	 * Prints # of dots based on # of slides
+	 *
 	 */
 	function generateDots() {
 		$( '.dots' ).append( "<ul>" );
@@ -69,12 +73,14 @@ jQuery( document ).ready( function( $ ) {
 	}
 
 	/**
+	 *
 	 * Manipulates the navigation dots; highlights current slide corresponding
 	 * dot and removes previous dot highlight.
 	 * Used by any function which moves the slides in any direction.
 	 * Should not need to manipulate currentSlide global. Purely reactionary.
 	 * @param {current} The current slide, given by calling method
 	 * @param {previous} The previous slide, given by calling method
+	 *
 	 */
 	function manipulateDots(current,previous) {
 		// get dots
@@ -96,8 +102,10 @@ jQuery( document ).ready( function( $ ) {
 	}
 
 	/**
+	 *
 	 * Sets up the slides to begin sliding motion -- hides all slides but the
 	 *   first, highlights current title card, and sets up dots.
+	 *
 	 */
 	function slideSetup() {
 		// ---------------------------------
@@ -117,8 +125,10 @@ jQuery( document ).ready( function( $ ) {
 	}
 
 	/**
+	 *
 	 * Advance slides by 1
 	 * modifies currentSlide global
+	 *
 	 */
 	function slideForward() {
 		// get all slides
@@ -149,6 +159,7 @@ jQuery( document ).ready( function( $ ) {
 	}
 
 	/** 
+	 *
 	 * Retreat slides by 1
 	 * modifies currentSlide global
 	 * note: seems to make a weird skipping effect when changing slides,
@@ -157,6 +168,7 @@ jQuery( document ).ready( function( $ ) {
 	 *       may not be an issue, since this method will be used once at a time
 	 *       when arrows are clicked, and not for continuous motion like 
 	 *       slideForward()
+	 *
 	 */
 	function slideBackward() {
 		//console.log("----")
@@ -197,10 +209,12 @@ jQuery( document ).ready( function( $ ) {
 	}
 
 	/**
+	 *
 	 * Jump to any slide by given index
 	 * modifies currentSlide global
 	 * @param {newSlide} the slide to which the slider will jump when this 
 	 *                   method is called
+	 *
 	 */
 	function slideJumpTo( newSlide ) {
 		// test if current is within bounds
@@ -230,8 +244,17 @@ jQuery( document ).ready( function( $ ) {
 		} // else do nothing
 	}
 
+	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+	 *																		   *
+	 *                             CLICK EVENTS                                *
+	 *																		   *
+	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 	/**
-	 * LEFT ARROW CLICK event - go back a slide
+	 * 
+	 * LEFT ARROW CONTROL
+	 *  Goes back a single slide.
+	 *
 	 */
 	$( '.arrow-left' ).click(function(){
 		// stop the sliding action
@@ -245,7 +268,10 @@ jQuery( document ).ready( function( $ ) {
 	});
 	
 	/**
-	 * RIGHT ARROW CLICK event - go forward a slide
+	 *
+	 * RIGHT ARROW CONTROL
+	 *  Goes forward a single slide.
+	 *
 	 */
 	$( '.arrow-right' ).click(function(){
 		// stop the sliding action
@@ -259,7 +285,11 @@ jQuery( document ).ready( function( $ ) {
 	});
 	
 	/** 
-	 * Pause click test event
+	 *
+	 * PAUSE
+	 *  Click event used for testing. Works on element with class 'pause'.
+	 *  Elements needs to be added into the slider HTML manually to be used.
+	 *
 	 */
 	$( '.pause' ).click(function(){
 		if ( $('.pause').text() == "pause" ) {
@@ -272,12 +302,15 @@ jQuery( document ).ready( function( $ ) {
 	});
 
 	/**
-	 * For when a dot is clicked!
-	 * This will modify @currentSlide because of the call to slideJumpTo().
 	 *
-	 * Note: Had to use on() instead of click() because dots ul was generated
-	 *       by jQuery; click() only attaches to elements which existed at
-	 *       document ready
+	 * DOTS . . .
+	 *  For when a dot is clicked! Will go to the slide corresponding to that dot.
+	 *  This will modify @currentSlide because of the call to slideJumpTo().
+	 *
+	 *  Note: Had to use on() instead of click() because dots ul was generated
+	 *  	by jQuery; click() only attaches to elements which existed at
+	 *  	document ready.
+	 *
 	 */
 	$( '.dots' ).on("click", "ul li", function(event) { 
 		// get dots ul li
@@ -307,7 +340,8 @@ jQuery( document ).ready( function( $ ) {
 
 	/**
 	 *
-	 * Setup & initiate the sliding action
+	 * SETUP
+	 *  Setup elements & initiate the sliding action.
 	 *
 	 */
 	generateDots();
@@ -319,15 +353,12 @@ jQuery( document ).ready( function( $ ) {
 
 	/** 
 	 *
-	 * Every time window resizes, check the slides height and assign it to
-	 * the height of the titles
+	 * WINDOW RESIZE
+	 *  Every time window resizes, check the slides height and assign it to
+	 *  the height of the titles.
 	 *
 	 */
 	$( window ).resize( function() {
 		setTitleHeights();
-		// do a calculation to make sure the title & date would not be obscured.
-		// if (title+date height) > span height then stop resizing and send the 
-		//     titles to below the images. this method should then work no matter 
-		//     how many titles there are.
 	});
 });
