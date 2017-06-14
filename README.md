@@ -1,7 +1,7 @@
 # A simple slider to practice JS/jQuery
 
 ## Pre-requisite(s) for Use 
-- Images added must be of the same size if you want consistency. (You decide what looks good, but the demo uses 900x300.)
+- ~~~Images added must be of the same size if you want consistency. (You decide what looks good, but the demo uses 900x300.)~~~ As of June 14, 2017, slider adjusts automatically to images of different aspect ratio.
 
 
 ## Key for Task List
