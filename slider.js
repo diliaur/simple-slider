@@ -315,7 +315,7 @@ jQuery( document ).ready( function( $ ) {
 	slideSetup(); // this comes before setTitleHeights() for correct calculations
 	setTitleHeights();
 	manipulateDots();
-	//var slideAction = setInterval(slideForward, 3000);
+	var slideAction = setInterval(slideForward, 3000);
 
 	/** 
 	 *
