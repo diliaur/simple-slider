@@ -156,6 +156,10 @@ jQuery( document ).ready( function( $ ) {
 
 		// advance dot
 		manipulateDots(currentSlide,currentSlide-1);
+
+		// make sure titles are sized correctly to the image
+		// this accounts for variable height images
+		setTitleHeights();
 	}
 
 	/** 
@@ -201,11 +205,12 @@ jQuery( document ).ready( function( $ ) {
 		// show current slide title
 		allSlideTitles.eq(currentSlide).addClass( 'current' );
 	
-		console.log("slide back: " + currentSlide);
 		// change dot
 		manipulateDots(currentSlide,currentSlide+1);
 
-		console.log("---");
+		// make sure titles are sized correctly to the image
+		// this accounts for variable height images
+		setTitleHeights();
 	}
 
 	/**
@@ -241,6 +246,10 @@ jQuery( document ).ready( function( $ ) {
 
 			currentSlide = newSlide; // finally, update currentSlide
 
+			// make sure titles are sized correctly to the image
+			// this accounts for variable height images
+			setTitleHeights();
+			
 		} // else do nothing
 	}
 

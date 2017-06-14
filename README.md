@@ -12,23 +12,22 @@
 ## Todo
 
 ### Display
-- [] display - decide breakpoint: when to break title container off and display it underneath the slider image (otherwise titles stay longer than image and look bad)
-- [] display - control length of titles and excerpts (ellipsis '...' after max # of characters)
-- [] display - add test to see when title divs are too small (i.e. when the title and date are getting cut off) and use that to 
-- [] display - calculate size of titles based on # of slides to make sure titles/dates won't be obscured; if the div becomes too small, then use this in the decision breakpoint (see next item)
+- ---[] display - decide breakpoint: when to break title container off and display it underneath the slider image (otherwise titles stay longer than image and look bad)---
+- [50%] display - control length of titles and excerpts (ellipsis '...' after max # of characters) -> actually just using css overflow right now to cut it off, but no ellipsis so it is confusing. supposedly there is a CSS3 way to add the ellipsis
+- [] ---display - calculate size of titles based on # of slides to make sure titles/dates won't be obscured; if the div becomes too small, then use this in the decision breakpoint---
 - [] prevent i-bar from coming up when hovering over controls (icing)
-- [] how to fail gracefully when no slides are available? -> default slide? etc.
+- ---[] how to fail gracefully when no slides are available? -> default slide? etc.--- no longer necessary as wordpress won't serve a slide w/o an attached image
 
 ### Code refactoring & Testing
 - [] test compatibility with different browsers + versions
-- [] refactor - make code look neater (organize & comment)
-- [] better way to manipulate currentSlide global ?
+- [tabled] better way to manipulate currentSlide global ?
 - [] make dots click callback into own function (maybe)
-- [] make allSlides list a global since it's used in multiple places (may not matter)
+- [tabled] make allSlides list a global since it's used in multiple places (may not matter)
 
 ### Wordpressify
 
 ## Done
+- [x] (Jun 14 17) refactor - make code look neater (organize & comment)
 - [x] (Jun 13 17) if there is no image, do not include the post
 - [x] (Jun 6 17) display - style categories
 - [x] (Jun 6 17) wordpress-ify - link titles to post
