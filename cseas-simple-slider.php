@@ -68,9 +68,6 @@
 			<div class="container-titles"></div>
 			<div class="clearfix-dt"></div>
 		</div><!--end slider container-->
-			<br/>
-			<br/>
-			<span class="pause">pause</span>
 		<?php
 	}
 	add_shortcode( 'cseas-simple-slider', 'cseas_simple_slider_shortcode' );
