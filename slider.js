@@ -284,7 +284,7 @@ jQuery( document ).ready( function( $ ) {
 		var dots = $( '.dots ul li ');
 
 		// stall sliding action
-		//clearInterval(slideAction);
+		clearInterval(slideAction);
 
 		// check what # of dot was clicked
 		//     previously had assigned value to currentSlide, but that seemed
@@ -296,7 +296,7 @@ jQuery( document ).ready( function( $ ) {
 		slideJumpTo(nextSlide);
 
 		// restart sliding action - should take care of the dot change too
-		//slideAction = setInterval(slideForward,3000);
+		slideAction = setInterval(slideForward,3000);
 	});
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
