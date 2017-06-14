@@ -81,6 +81,9 @@ div {
 	background-color: #000;
 	color: #fff;
 	padding: 5px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis; /* for graceful truncation */
 }
 .excerpt p {
 	padding: 0; margin: 0; /* wordpress adds a <p> tag we need to compensate for */
@@ -163,4 +166,14 @@ div {
 .slide-list li img {
 	float: left; /* in order for image to go under categories */
 	z-index: 89;
+}
+
+/* -------------------- */
+.pause {
+	padding: 5px;
+	background-color: #ccc;
+	border-top: 1px solid #fff;
+	border-left: 1px solid #eee;
+	border-right: 1px solid #888;
+	border-bottom: 1px solid #666;
 }

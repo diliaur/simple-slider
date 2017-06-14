@@ -30,38 +30,31 @@ jQuery( document ).ready( function( $ ) {
 	 * height of the slide image container
 	 */
 	function setTitleHeights() {
-		
-		var slideHeight = $( '.slide-list > li' ).height(); // get slide height
-		//var exerptHeight = $( '.slide-list > li .excerpt' ).height();
-		var navHeight = $( '.slide-nav' ).height();
 
-		//var slideContainerHeight = $( '.container-slides' ).height();
-		var slideContainerHeight = slideHeight + navHeight;
+		var slideContainerHeight = $( '.container-slides' ).height(); // direct height grab
+		var borderHeight = NUM_SLIDES; // compensate for total height taken by borders (should be v small)
+		var indivTitleHeight = (slideContainerHeight - borderHeight) / NUM_SLIDES;
 
-		var borderHeight = NUM_SLIDES; // compensate for total height taken by borders
 
-		// calculate title height - (slide height) / (# of titles/# of slides)
-		var titleHeight = (slideContainerHeight - borderHeight) / NUM_SLIDES;
-
-		console.log(titleHeight);
+		console.log('direct title height:' + (indivTitleHeight * NUM_SLIDES));
+		console.log('direct container height: ' + slideContainerHeight);
 
 		// assign height to title element class
 		// use innerheight because it takes padding into consideration
-		$( '.title-and-date' ).innerHeight(titleHeight);
+		$( '.title-and-date' ).innerHeight(indivTitleHeight);
 
 		/*
 		 * Check for width of screen, and place titles underneath
 		 * the slides instead.
 		 */
-
 		var minWindowWidth = 1000;
 
 		if ( $( window ).width() < minWindowWidth ) {
-			$( 'div.container-titles' ).addClass( 'container-titles-no-float' );
-			$( 'div.container-titles' ).removeClass( 'container-titles' );
+			//$( 'div.container-titles' ).addClass( 'container-titles-no-float' );
+			//$( 'div.container-titles' ).removeClass( 'container-titles' );
 		} else {
-			$( 'div.container-titles' ).addClass( 'container-titles' );
-			$( 'div.container-titles' ).removeClass( 'container-titles-no-float' );
+			//$( 'div.container-titles' ).addClass( 'container-titles' );
+			//$( 'div.container-titles' ).removeClass( 'container-titles-no-float' );
 		}
 	}
 
@@ -269,12 +262,12 @@ jQuery( document ).ready( function( $ ) {
 	 * Pause click test event
 	 */
 	$( '.pause' ).click(function(){
-		if ( $('.pause').text() == "Pause" ) {
+		if ( $('.pause').text() == "pause" ) {
 			clearInterval(slideAction);
-			$('.pause').text("Unpause");
+			$('.pause').text("unpause");
 		} else {
 			slideAction = setInterval(slideForward,3000);
-			$('.pause').text("Pause");
+			$('.pause').text("pause");
 		}
 	});
 
@@ -291,7 +284,7 @@ jQuery( document ).ready( function( $ ) {
 		var dots = $( '.dots ul li ');
 
 		// stall sliding action
-		clearInterval(slideAction);
+		//clearInterval(slideAction);
 
 		// check what # of dot was clicked
 		//     previously had assigned value to currentSlide, but that seemed
@@ -303,7 +296,7 @@ jQuery( document ).ready( function( $ ) {
 		slideJumpTo(nextSlide);
 
 		// restart sliding action - should take care of the dot change too
-		slideAction = setInterval(slideForward,3000);
+		//slideAction = setInterval(slideForward,3000);
 	});
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -319,10 +312,11 @@ jQuery( document ).ready( function( $ ) {
 	 */
 	generateDots();
 	populateTitles();
+	slideSetup(); // this comes before setTitleHeights() in order to 
 	setTitleHeights();
-	slideSetup();
 	manipulateDots();
-	var slideAction = setInterval(slideForward, 3000);
+	slideJumpTo(1);
+	//var slideAction = setInterval(slideForward, 3000);
 
 	/** 
 	 *
