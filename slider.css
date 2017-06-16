@@ -31,8 +31,8 @@ div {
 	width:10%;
 }
 .arrow-left:hover, .arrow-right:hover {
-	background-color: #000;
-	color: #fff;
+	background-color: #ccc;
+	color: #000;
 }
 .arrow-right {
 	width:10%;
@@ -50,8 +50,8 @@ div {
 }
 .arrow-left, .arrow-right, .dots {
 	font-size: 15px;
-	color: #000;
-	background-color: #ccc;
+	color: #ccc;
+	background-color: #000;
 }
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *			                                                                 *
