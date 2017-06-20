@@ -66,9 +66,9 @@ jQuery( document ).ready( function( $ ) {
 	 *
 	 */
 	function generateDots() {
-		$( '.dots' ).append( "<ul>" );
+		$( '.cs-dots' ).append( "<ul>" );
 		for (var count = 0; count < NUM_SLIDES; count++) {
-			$( '.dots ul' ).append( "<li>&#9633;</>" ); // UNICODE "White Circle" U+25CB
+			$( '.cs-dots ul' ).append( "<li>&#9633;</>" ); // UNICODE "White Circle" U+25CB
 		}
 	}
 
@@ -84,7 +84,7 @@ jQuery( document ).ready( function( $ ) {
 	 */
 	function manipulateDots(current,previous) {
 		// get dots
-		var dots = $( '.dots ul li' );
+		var dots = $( '.cs-dots ul li' );
 
 		// use global to turn empty dot into filled dot
 		dots.eq(current).html( "&#9632;" );
@@ -321,9 +321,9 @@ jQuery( document ).ready( function( $ ) {
 	 *  	document ready.
 	 *
 	 */
-	$( '.dots' ).on("click", "ul li", function(event) { 
+	$( '.cs-dots' ).on("click", "ul li", function(event) { 
 		// get dots ul li
-		var dots = $( '.dots ul li ');
+		var dots = $( '.cs-dots ul li ');
 
 		// stall sliding action
 		clearInterval(slideAction);

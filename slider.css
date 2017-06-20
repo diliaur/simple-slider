@@ -42,7 +42,7 @@ div {
  *                        Navigation (arrows, dots)                          *
  *                                                                           *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-.arrow-left, .arrow-right, .dots {
+.arrow-left, .arrow-right, .cs-dots {
 	float: left;
 	text-align: center;
 }
@@ -56,18 +56,18 @@ div {
 .arrow-right {
 	width:10%;
 }
-.dots {
+.cs-dots {
 	width:80%;
 	background-color: #ccc;
 }
-.dots ul {
+.cs-dots ul {
 	list-style-type: none;
 	padding: 0; margin: 0;
 }
-.dots ul li {
+.cs-dots ul li {
 	display: inline;
 }
-.arrow-left, .arrow-right, .dots {
+.arrow-left, .arrow-right, .cs-dots {
 	font-size: 15px;
 	color: #ccc;
 	background-color: #000;

@@ -19,6 +19,7 @@
 - ~~~[] how to fail gracefully when no slides are available? -> default slide? etc.~~~ no longer necessary as wordpress won't serve a slide w/o an attached image
 
 ### Code refactoring & Testing
+- [] IMPORTANT prefix everything with something unique to avoid clashing with other css or page elements
 - [] test compatibility with different browsers + versions
 - [tabled] better way to manipulate currentSlide global ?
 - [] make dots click callback into own function (maybe)

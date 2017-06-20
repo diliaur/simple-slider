@@ -60,7 +60,7 @@
 				</ul>
 				<div class="slide-nav">
 					<div class="arrow-left"><</div>
-					<div class="dots"></div>
+					<div class="cs-dots"></div>
 					<div class="arrow-right">></div>
 					<div class="clearfix-dt"></div>
 				</div>
