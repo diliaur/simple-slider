@@ -54,6 +54,10 @@
 
 ## Notes
 
+### Issue: Strange behavior when shortcode used in non-widget areas
+
+(Aug 31 17) When used on posts and pages, duplicates the slider & title cards are not formatted correctly for height, and neither is the image area. Eventually whole thing collapses into short divs. Could this be due to some element naming collision? Works fine in widget areas of different themes, at least.
+
 ### Issue [Resolved]: Not adding posts categorized as 'Featured' but which have no thumbnail
 
 (Jun 13 17) Used ```if ( has_post_thumbnail() )``` to make sure no posts without an image makes it into the slider. However, this then impacts the number of slides that make it into the slider -- it will not take the top 5 posts without an image, it will take the top 5 posts & then only display those with images (e.g. if 2/5 have no image, then slider will only have 3 slides). This is probably because the query is running before the IF; need to find a way to find the top 5 with image as 1 query.
