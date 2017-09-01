@@ -33,7 +33,7 @@ jQuery( document ).ready( function( $ ) {
 	 */
 	function setTitleHeights() {
 
-		var slideContainerHeight = $( '.container-slides' ).height(); // direct height grab
+		var slideContainerHeight = $( '.cseasss-container-slides' ).height(); // direct height grab
 		var borderHeight = NUM_SLIDES; // compensate for total height taken by borders (should be v small)
 		var indivTitleHeight = (slideContainerHeight - borderHeight) / NUM_SLIDES;
 

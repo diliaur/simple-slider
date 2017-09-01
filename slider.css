@@ -15,12 +15,12 @@ div {
 .container { /* bootstrap mod to match theme conditions */
 	max-width: 1140px;
 }
-.container-slider {
+.cseasss-container-slider {
 	width: 100%;
 	background-color: #eee;
 	overflow: hidden;
 }
-.container-slides {
+.cseasss-container-slides {
 	width: 75%;
 	float: left;
 	overflow: hidden;
@@ -32,7 +32,7 @@ div {
  *                                 Image                                     *
  *                                                                           *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-.container-slides img {
+.cseasss-container-slides img {
 	width: 100%;
 	height: auto;
 }
@@ -130,7 +130,7 @@ div {
 	width: 25%;
 	float: left;
 	background-color: #fff;
-	/* height needs to be contingent upon .container-slides height */
+	/* height needs to be contingent upon .cseasss-container-slides height */
 }
 .container-titles-no-float { /* for toggle when window resizes below break-point */
 	width: 100%;

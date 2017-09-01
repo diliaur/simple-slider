@@ -27,8 +27,8 @@
 	 */
 	function cseas_simple_slider_shortcode() {
 		?>
-		<div class="container-slider">
-			<div class="container-slides">
+		<div class="cseasss-container-slider">
+			<div class="cseasss-container-slides">
 				<ul class="slide-list">
 					<?php
 					$args = array(
@@ -71,4 +71,5 @@
 		<?php
 	}
 	add_shortcode( 'cseas-simple-slider', 'cseas_simple_slider_shortcode' );
+
 ?>
