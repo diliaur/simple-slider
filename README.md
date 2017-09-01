@@ -56,6 +56,8 @@
 
 ### Issue: Strange behavior when shortcode used in non-widget areas
 
+(Sep 1 17) Potential fix: WP discourages output directly from shortcode, which causes unexpected behavior; to get arounds this, send output to buffer and then return that output. This makes the widget on pages and posts look good, BUT in the widget area the spacing of certain elements (height/padding/margin, something) is thrown off. Not sure why this is (yet).
+
 (Aug 31 17) When used on posts and pages, duplicates the slider & title cards are not formatted correctly for height, and neither is the image area. Eventually whole thing collapses into short divs. Could this be due to some element naming collision? Works fine in widget areas of different themes, at least.
 
 ### Issue [Resolved]: Not adding posts categorized as 'Featured' but which have no thumbnail

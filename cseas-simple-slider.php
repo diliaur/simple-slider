@@ -26,6 +26,7 @@
 	 *
 	 */
 	function cseas_simple_slider_shortcode() {
+		ob_start();
 		?>
 		<div class="cseasss-container-slider">
 			<div class="cseasss-container-slides">
@@ -69,6 +70,8 @@
 			<div class="clearfix-dt"></div>
 		</div><!--end slider container-->
 		<?php
+		$content = ob_get_clean();
+		return $content;
 	}
 	add_shortcode( 'cseas-simple-slider', 'cseas_simple_slider_shortcode' );
 
