@@ -54,6 +54,10 @@
 
 ## Notes
 
+### Issue: JS or CSS throws off behavior of other sliders when this plugin is active
+
+(Sep 5 17) Noticed when activated on a wordpress site without being used on the page -- the code runs anyway, and some positioning in MetroTheme slider became misaligned. Not sure if this will happen with other sliders. Potential fix may be to tighten up the naming practices of the elements in this slider.
+
 ### Issue: Strange behavior when shortcode used in non-widget areas
 
 (Sep 1 17) Potential fix: WP discourages output directly from shortcode, which causes unexpected behavior; to get arounds this, send output to buffer and then return that output. This makes the widget on pages and posts look good, BUT in the widget area the spacing of certain elements (height/padding/margin, something) is thrown off. Not sure why this is (yet).
