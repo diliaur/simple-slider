@@ -8,7 +8,7 @@ jQuery( document ).ready( function( $ ) {
 
 	var NUM_SLIDES = $( '.slide-list > li' ).length;
 	var SLIDE_MAX = NUM_SLIDES - 1;
-	console.log ("SLIDE_MAX -> " + SLIDE_MAX);
+	//console.log ("SLIDE_MAX -> " + SLIDE_MAX);
 	var allSlideTitles = $( '.slide-list > li .title-and-date' ); // keeping this out here so others can use it
 	var currentSlide = 0; // begins at 0
 
@@ -38,8 +38,8 @@ jQuery( document ).ready( function( $ ) {
 		var indivTitleHeight = (slideContainerHeight - borderHeight) / NUM_SLIDES;
 
 
-		console.log('direct title height:' + (indivTitleHeight * NUM_SLIDES));
-		console.log('direct container height: ' + slideContainerHeight);
+		//console.log('direct title height:' + (indivTitleHeight * NUM_SLIDES));
+		//console.log('direct container height: ' + slideContainerHeight);
 
 		// assign height to title element class
 		// use innerheight because it takes padding into consideration
@@ -98,7 +98,7 @@ jQuery( document ).ready( function( $ ) {
 		// turn previously filled dot to empty dot
 		dots.eq(previous).html( "&#9633;" );
 
-		console.log("dots: current- " + current + ", prev- " + previous);
+		//console.log("dots: current- " + current + ", prev- " + previous);
 	}
 
 	/**
@@ -240,7 +240,7 @@ jQuery( document ).ready( function( $ ) {
 			allSlideTitles.eq(newSlide).addClass('current');
 
 			// update dot
-			console.log("jump: current- " + newSlide + ", prev- " + currentSlide);
+			//console.log("jump: current- " + newSlide + ", prev- " + currentSlide);
 
 			manipulateDots(newSlide,currentSlide); //next,prev as parameters 
 
@@ -333,7 +333,7 @@ jQuery( document ).ready( function( $ ) {
 		//     to mess up the movement of the dots... once used a separate var,
 		//     nextSlide, everything cleared up.
 		nextSlide = dots.index(event.target);
-		console.log(nextSlide);
+		//console.log(nextSlide);
 
 		slideJumpTo(nextSlide);
 
