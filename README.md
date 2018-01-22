@@ -12,10 +12,13 @@
 ## Todo
 
 ### Display
-- ~~~[] display - decide breakpoint: when to break title container off and display it underneath the slider image (otherwise titles stay longer than image and look bad)~~~
-- [50%] display - control length of titles and excerpts (ellipsis '...' after max # of characters) -> actually just using css overflow right now to cut it off, but no ellipsis so it is confusing. supposedly there is a CSS3 way to add the ellipsis
-- [] ~~~display - calculate size of titles based on # of slides to make sure titles/dates won't be obscured; if the div becomes too small, then use this in the decision breakpoint~~~
-- [] prevent i-bar from coming up when hovering over controls (icing)
+- [] request: make exerpt text bigger
+- [] cut off excerpt text when it is too long (decide # of characters)
+- [] title font sizes shrink/grow depending on # of slides
+- [50%] control length of titles and excerpts (ellipsis '...' after max # of characters) -> actually just using css overflow right now to cut it off, but no ellipsis so it is confusing. supposedly there is a CSS3 way to add the ellipsis
+- [] decide & add breakpoint: when to break title container off and display it underneath the slider image (otherwise titles stay longer than image and look bad)
+
+- ~~~[] calculate size of titles based on # of slides to make sure titles/dates won't be obscured; if the div becomes too small, then use this in the decision breakpoint~~~
 - ~~~[] how to fail gracefully when no slides are available? -> default slide? etc.~~~ no longer necessary as wordpress won't serve a slide w/o an attached image
 
 ### Code refactoring & Testing
@@ -26,6 +29,8 @@
 - [tabled] make allSlides list a global since it's used in multiple places (may not matter)
 
 ### Wordpressify
+- [] transform into widget
+	- [] add admin control for number of slots (incl. maximum based on appearance - this is about 7-8 slides)
 
 ## Done
 - [x] (Jun 14 17) refactor - make code look neater (organize & comment)
