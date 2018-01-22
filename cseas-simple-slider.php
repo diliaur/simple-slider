@@ -34,7 +34,7 @@
 					<?php
 					$args = array(
 						'category_name' => 'Featured',
-						'posts_per_page' => 5,
+						'posts_per_page' => 4,
 						'meta_key' => '_thumbnail_id'
 						);
 					$my_query = new WP_Query( $args );
