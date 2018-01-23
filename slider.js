@@ -48,6 +48,8 @@ jQuery( document ).ready( function( $ ) {
 		/*
 		 * Check for width of screen, and place titles underneath
 		 * the slides instead.
+		 * 
+		 * THIS DOESN'T WORK - JAN 22, 2018
 		 */
 		var minWindowWidth = 1000;
 

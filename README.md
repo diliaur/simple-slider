@@ -1,7 +1,9 @@
 # A simple slider to practice JS/jQuery
 
 ## Pre-requisite(s) for Use 
-- ~~~Images added must be of the same size if you want consistency. (You decide what looks good, but the demo uses 900x300.)~~~ As of June 14, 2017, slider adjusts automatically to images of different aspect ratio.
+- Intended for use on WordPress sites
+- Images added must be of the same size if you want consistency. However, slider adjusts automatically to images of different aspect ratio.
+- Excerpts are cut off with "..." depending on page width. This may be something you want to adjust for.
 
 
 ## Key for Task List
@@ -12,8 +14,6 @@
 ## Todo
 
 ### Display
-- [] request: make exerpt text bigger
-- [] cut off excerpt text when it is too long (decide # of characters)
 - [] title font sizes shrink/grow depending on # of slides
 - [50%] control length of titles and excerpts (ellipsis '...' after max # of characters) -> actually just using css overflow right now to cut it off, but no ellipsis so it is confusing. supposedly there is a CSS3 way to add the ellipsis
 - [] decide & add breakpoint: when to break title container off and display it underneath the slider image (otherwise titles stay longer than image and look bad)
@@ -33,6 +33,10 @@
 	- [] add admin control for number of slots (incl. maximum based on appearance - this is about 7-8 slides)
 
 ## Done
+- [x] (Jan 22 18) cut off excerpt text when it is too long (decide # of characters)
+	- note: the key was doing this on the <p>, not the div.excerpt element
+- [x] (Jan 22 18) request: make exerpt text bigger
+	- note: 16px from default of 14px
 - [x] (Jun 14 17) refactor - make code look neater (organize & comment)
 - [x] (Jun 13 17) if there is no image, do not include the post
 - [x] (Jun 6 17) display - style categories

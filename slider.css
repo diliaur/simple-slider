@@ -113,12 +113,15 @@ div {
 	background-color: #000;
 	color: #fff;
 	padding: 5px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis; /* for graceful truncation */
 }
 .excerpt p {
 	padding: 0; margin: 0; /* wordpress adds a <p> tag we need to compensate for */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis; /* for graceful truncation DOESN"T WORK */
+	font-size: 16px;
+	display:block;
+	width:100%;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
