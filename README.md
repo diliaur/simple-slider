@@ -1,5 +1,7 @@
 # A simple slider to practice JS/jQuery
 
+__Important note (Feb 5, 2018): This project has been converted into the [Simple Slider 2](https://github.com/diliaur/simple-slider-2).__
+
 ## Pre-requisite(s) for Use 
 - Intended for use on WordPress sites
 - Images added must be of the same size if you want consistency. However, slider adjusts automatically to images of different aspect ratio.
