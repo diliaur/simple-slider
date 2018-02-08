@@ -74,13 +74,21 @@ __Important note (Feb 5, 2018): This project has been converted into the [Simple
 
 (Aug 31 17) When used on posts and pages, duplicates the slider & title cards are not formatted correctly for height, and neither is the image area. Eventually whole thing collapses into short divs. Could this be due to some element naming collision? Works fine in widget areas of different themes, at least.
 
+### Issue: jQuery selectors
+
+(Feb 7 18) Still haven't tackled this issue because the site for which this slider was developed didn't need more than one. Not sure how to resolve the multi-slider problem. Have not tested it again to see current behavior, either. Have ported it to [new version](https://github.com/diliaur/simple-slider-2) which may tackle this issue.
+
+(Apr 3 17) In its current iteration, the nature of the CSS classes and the way they're selected by jQuery means that only one of these sliders should be used on a page at a single time. This is OK for my purposes, but in the future should make it multiple-iteration-proof just for robustness, especially if it will be WordPress-ified.
+
 ### Issue [Resolved]: Not adding posts categorized as 'Featured' but which have no thumbnail
 
 (Jun 13 17) Used ```if ( has_post_thumbnail() )``` to make sure no posts without an image makes it into the slider. However, this then impacts the number of slides that make it into the slider -- it will not take the top 5 posts without an image, it will take the top 5 posts & then only display those with images (e.g. if 2/5 have no image, then slider will only have 3 slides). This is probably because the query is running before the IF; need to find a way to find the top 5 with image as 1 query.
 
 Solution: Used ```meta_key``` in ```WP_Query``` arguments list to grab posts with filled field ```_thumbnail_id```, meaning they have attached thumbnail images.
 
-### Issue: UNICODE arrows displaying as different sizes
+### Issue [Resolved]: UNICODE arrows displaying as different sizes
+
+(Feb 7 18) Decided to keep angle brackets ```< >``` as arrows since there is no problem using them or any reported issues. Marked issue resolved.
 
 (Jun 6 17) For some reason, &#9668; displays as smaller than &#9658;, even when font-size property was set. Ditched the symbols for <> brackets for now (or permanently).
 
@@ -96,15 +104,13 @@ Addendum 3: Seems like there is an issue with WP thumbnails in the wordpress ins
 
 Solution: Counter discrepancy was caused by selecting ALL li children of ul.slide-list by '.slide-list li'. Changed to immediate descendant selection, '.slide-list > li' and this rectified the issue.
 
-### jQuery selectors
-
-(Apr 3 17) In its current iteration, the nature of the CSS classes and the way they're selected by jQuery means that only one of these sliders should be used on a page at a single time. This is OK for my purposes, but in the future should make it multiple-iteration-proof just for robustness, especially if it will be WordPress-ified.
-
-### [Resolved] slideBackward()
+### Issue [Resolved]: slideBackward()
 
 (Feb 7 2018) At some point this issue resolved -- unfortunately I didn't take note of when, or what modification made the difference.
 
 seems to make a weird skipping effect when changing slides,e.g. from the first to the last when going around, or sometimes in the middle. need to check if this repeats on other machines. may not be an issue, since this method will be used once at a time when arrows are clicked, and not for continuous motion like  slideForward()
+
+---
 
 ### Controls (Unicode)
 
